@@ -36,7 +36,7 @@ import {AfterLoginModule} from "./afterLogin/afterLogin.module";
     LoginComponent,
     NotFound404Component,
     RegistrerComponent,
-    AfterLoginComponent
+   // AfterLoginComponent
   ],
   //Importacion de modulos necesarios para que la aplicacion funcione
   imports: [

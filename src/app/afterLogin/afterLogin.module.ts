@@ -10,30 +10,27 @@ import { NgModule } from '@angular/core';
 
 
 import {AfterLoginComponent} from "./after-login.component";
+
 import {DashboardComponent} from "./sections/dashboard/dashboard.component";
 import {GraphicsComponent} from "./sections/graphics/graphics.component";
 import {ProgressComponent} from "./sections/progress/progress.component";
 
-import {HeaderBarComponent} from "./shared/bars/header-bar/header-bar.component";
-import {SideBarComponent} from "./shared/bars/side-bar/side-bar.component";
-import {BreadcrumsComponent} from "./shared/breadcrums/breadcrums.component";
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
  declarations:[
+   AfterLoginComponent,
    DashboardComponent,
    GraphicsComponent,
-   ProgressComponent,
-   HeaderBarComponent,
-   SideBarComponent,
-   BreadcrumsComponent
+   ProgressComponent
  ],
   exports:[
     DashboardComponent,
     GraphicsComponent,
-    ProgressComponent,
-    HeaderBarComponent,
-    SideBarComponent,
-    BreadcrumsComponent
+    ProgressComponent
+  ],
+  imports:[
+    SharedModule
   ]
 })
 
