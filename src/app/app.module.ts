@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+
 //Importo NgModule para declarar un modulo
 import { NgModule } from '@angular/core';
 
@@ -19,10 +20,16 @@ import { NotFound404Component } from './errors/not-found404/not-found404.compone
 //Componente para el registro del usuario
 import { RegistrerComponent } from './login/registrer.component';
 
+/*
+ ====================================================================
+ IMPORTACIÓN DE MODULOS
+ ====================================================================
+ */
 
-//Componente para el registro del usuario
+//Importacion del modulo de rutas
 import {AppRoutingModule} from './app-routes.module';
 
+//Importacion AfterLoginModule
 import {AfterLoginModule} from "./afterLogin/afterLogin.module";
 
 

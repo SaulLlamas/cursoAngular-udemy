@@ -19,9 +19,8 @@ Importación de los componentes a los que van a referirise las rutas
  */
 import {LoginComponent} from "./login/login.component";
 
-import {NotFound404Component} from "./errors/not-found404/not-found404.component";
-
 import {RegistrerComponent} from "./login/registrer.component";
+
 
 
 
