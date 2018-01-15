@@ -5,24 +5,28 @@ import { NgModule } from '@angular/core';
 //Importo appComponent que es el componente principal de la aplicación
 import { AppComponent } from './app.component';
 
-//Importo el resto de los componentes de la aplicación
-//Componente para la pagina de login del usuario
+/*
+====================================================================
+IMPORTACIÓN DE COMPONENTES
+====================================================================
+*/
+//Componente para el login del usuario
 import { LoginComponent } from './login/login.component';
 
-import { DashboardComponent } from './afterLogin/sections/dashboard/dashboard.component';
-import { GraphicsComponent } from './afterLogin/sections/graphics/graphics.component';
-import { ProgressComponent } from './afterLogin/sections/progress/progress.component';
-import {HeaderBarComponent} from './afterLogin/shared/bars/header-bar/header-bar.component';
-import { SideBarComponent } from './afterLogin/shared/bars/side-bar/side-bar.component';
-import { BreadcrumsComponent } from './afterLogin/shared/breadcrums/breadcrums.component';
+//Componente para la pagina de error 404
+import { NotFound404Component } from './errors/not-found404/not-found404.component';
 
-
-import { NotFound404Component } from './afterLogin/shared/errors/not-found404/not-found404.component';
-
-//Importo el modulo de rutas
-import {AppRoutingModule} from './routes/app-routes.module';
-import { AfterLoginComponent } from './afterLogin/after-login.component';
+//Componente para el registro del usuario
 import { RegistrerComponent } from './login/registrer.component';
+
+import {AfterLoginComponent} from "./afterLogin/after-login.component";
+
+
+//Componente para el registro del usuario
+import {AppRoutingModule} from './routes/app-routes.module';
+
+import {AfterLoginModule} from "./afterLogin/afterLogin.module";
+
 
 
 
@@ -30,20 +34,15 @@ import { RegistrerComponent } from './login/registrer.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent,
-    GraphicsComponent,
-    ProgressComponent,
-    HeaderBarComponent,
-    SideBarComponent,
-    BreadcrumsComponent,
     NotFound404Component,
-    AfterLoginComponent,
-    RegistrerComponent
+    RegistrerComponent,
+    AfterLoginComponent
   ],
   //Importacion de modulos necesarios para que la aplicacion funcione
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AfterLoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]

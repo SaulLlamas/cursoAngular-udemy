@@ -23,7 +23,7 @@ import {GraphicsComponent} from "../afterLogin/sections/graphics/graphics.compon
 import {ProgressComponent} from "../afterLogin/sections/progress/progress.component";
 
 
-import {NotFound404Component} from "../afterLogin/shared/errors/not-found404/not-found404.component";
+import {NotFound404Component} from "../errors/not-found404/not-found404.component";
 import {AfterLoginComponent} from "../afterLogin/after-login.component";
 import {RegistrerComponent} from "../login/registrer.component";
 
