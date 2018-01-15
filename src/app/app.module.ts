@@ -19,11 +19,9 @@ import { NotFound404Component } from './errors/not-found404/not-found404.compone
 //Componente para el registro del usuario
 import { RegistrerComponent } from './login/registrer.component';
 
-import {AfterLoginComponent} from "./afterLogin/after-login.component";
-
 
 //Componente para el registro del usuario
-import {AppRoutingModule} from './routes/app-routes.module';
+import {AppRoutingModule} from './app-routes.module';
 
 import {AfterLoginModule} from "./afterLogin/afterLogin.module";
 
@@ -35,8 +33,7 @@ import {AfterLoginModule} from "./afterLogin/afterLogin.module";
     AppComponent,
     LoginComponent,
     NotFound404Component,
-    RegistrerComponent,
-   // AfterLoginComponent
+    RegistrerComponent
   ],
   //Importacion de modulos necesarios para que la aplicacion funcione
   imports: [
