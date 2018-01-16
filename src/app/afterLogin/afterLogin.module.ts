@@ -16,7 +16,7 @@ import {GraphicsComponent} from "./sections/graphics/graphics.component";
 import {ProgressComponent} from "./sections/progress/progress.component";
 
 import {SharedModule} from './shared/shared.module';
-import {AfterLoginRoutesModule} from './afterLogin-routes.module';
+import {AFTERLOGIN_ROUTES} from './afterLogin.routes';
 
 @NgModule({
  declarations:[
@@ -32,7 +32,7 @@ import {AfterLoginRoutesModule} from './afterLogin-routes.module';
   ],
   imports:[
     SharedModule,
-    AfterLoginRoutesModule
+    AFTERLOGIN_ROUTES
   ]
 })
 

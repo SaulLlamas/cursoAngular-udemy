@@ -30,9 +30,11 @@ const AfterloginRoutes : Routes = [
 ];
 
 
-@NgModule({
+/*@NgModule({
   imports:[RouterModule.forChild(AfterloginRoutes)],
   exports:[RouterModule]
 })
 
-export class AfterLoginRoutesModule{}
+export class AfterLoginRoutesModule{}*/
+
+export const AFTERLOGIN_ROUTES = RouterModule.forChild(AfterloginRoutes);

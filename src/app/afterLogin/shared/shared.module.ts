@@ -11,6 +11,7 @@ import { NgModule } from '@angular/core';
 import {HeaderBarComponent} from './bars/header-bar/header-bar.component';
 import {SideBarComponent} from './bars/side-bar/side-bar.component';
 import {BreadcrumsComponent} from './breadcrums/breadcrums.component';
+import {NotFound404Component} from '../../errors/not-found404/not-found404.component';
 
 
 
@@ -18,12 +19,14 @@ import {BreadcrumsComponent} from './breadcrums/breadcrums.component';
   declarations:[
     HeaderBarComponent,
     SideBarComponent,
-    BreadcrumsComponent
+    BreadcrumsComponent,
+    NotFound404Component
   ],
   exports:[
     HeaderBarComponent,
     SideBarComponent,
-    BreadcrumsComponent
+    BreadcrumsComponent,
+    NotFound404Component
   ]
 })
 
