@@ -17,6 +17,10 @@ import {ProgressComponent} from "./sections/progress/progress.component";
 
 import {SharedModule} from './shared/shared.module';
 import {AFTERLOGIN_ROUTES} from './afterLogin.routes';
+//Importacion del modulo para trabajar con formularios
+import {FormsModule} from '@angular/forms';
+import {CommonModule} from '@angular/common';
+
 
 @NgModule({
  declarations:[
@@ -32,7 +36,9 @@ import {AFTERLOGIN_ROUTES} from './afterLogin.routes';
   ],
   imports:[
     SharedModule,
-    AFTERLOGIN_ROUTES
+    AFTERLOGIN_ROUTES,
+    FormsModule,
+    CommonModule
   ]
 })
 
