@@ -15,11 +15,15 @@ import {DashboardComponent} from "./sections/dashboard/dashboard.component";
 import {GraphicsComponent} from "./sections/graphics/graphics.component";
 import {ProgressComponent} from "./sections/progress/progress.component";
 
+import {ProgessIncrementComponent} from '../components/progess-increment/progess-increment.component';
+
 import {SharedModule} from './shared/shared.module';
 import {AFTERLOGIN_ROUTES} from './afterLogin.routes';
-//Importacion del modulo para trabajar con formularios
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
+
+
+
 
 
 @NgModule({
@@ -27,7 +31,8 @@ import {CommonModule} from '@angular/common';
    AfterLoginComponent,
    DashboardComponent,
    GraphicsComponent,
-   ProgressComponent
+   ProgressComponent,
+   ProgessIncrementComponent
  ],
   exports:[
     DashboardComponent,

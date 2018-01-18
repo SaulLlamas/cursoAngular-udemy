@@ -18,6 +18,10 @@ import { LoginComponent } from './login/login.component';
 //Componente para el registro del usuario
 import { RegistrerComponent } from './login/registrer.component';
 
+
+//Importo componente para incrementar barras de progresso
+import { ProgessIncrementComponent } from './components/progess-increment/progess-increment.component';
+
 /*
  ====================================================================
  IMPORTACIÓN DE MODULOS
@@ -28,9 +32,13 @@ import { RegistrerComponent } from './login/registrer.component';
 import {APP_ROUTES} from './app.routes';
 
 //Importacion AfterLoginModule
-import {AfterLoginModule} from "./afterLogin/afterLogin.module";
+import {AfterLoginModule} from './afterLogin/afterLogin.module';
 
 
+//Importacion del modulo para trabajar con formularios
+import {FormsModule} from '@angular/forms';
+//Importacion del modulo que permitira utilizar elementos  de angular como  por ejemplo el ngIf
+import {CommonModule} from '@angular/common';
 
 
 
@@ -44,7 +52,9 @@ import {AfterLoginModule} from "./afterLogin/afterLogin.module";
   imports: [
     BrowserModule,
     APP_ROUTES,
-    AfterLoginModule
+    AfterLoginModule,
+    FormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

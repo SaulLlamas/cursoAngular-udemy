@@ -5,7 +5,7 @@
     <!--la clase de bootstrap card crea una targeta que contiene diferentes elementos-->
     <div class="card">
       <div class="card-body">
-        <h4>Barra de progreso</h4>
+        <h4>Barras de progreso</h4>
 
         <!--===================================================================================-->
         <!--Barra de progreso animada en bootstrap 4-->
@@ -13,6 +13,17 @@
         <div class="progress">
 
           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.aria-valuenow]="progress" aria-valuemin="0" aria-valuemax="100" [style.width]="progress +'%' "></div>
+
+        </div>
+
+        <br>
+
+        <!--===================================================================================-->
+        <!--Barra de progreso animada en bootstrap 4-->
+        <!--===================================================================================-->
+        <div class="progress">
+
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" [attr.aria-valuenow]="progress" aria-valuemin="0" aria-valuemax="100" [style.width]="progress +'%' "></div>
 
         </div>
 
@@ -28,34 +39,7 @@
     <div class="card">
       <div class="card-body">
 
-        <div class="input-group">
-
-            <!--botton - para bajar un 5% el nivel de la barra de proceso-->
-            <span class="input-group-btn">
-              <button class="btn btn-primary" type="button" (click)="changeProgressValue(-5)">
-                <i class="mdi mdi-minus"></i> 5
-              </button>
-            </span>
-
-                <input  type="number" class="form-control" [(ngModel)]="progress" >
-
-            <!--botton + para subir un 5% el nivel de la barra de proceso-->
-            <span class="input-group-btn">
-              <button class="btn btn-primary" type="button" (click)="changeProgressValue(+5)">
-                <i class="mdi mdi-plus"></i> 5
-              </button>
-            </span>
-
-          </div>
-
-          <!-- si el valor introducido para la barra de progreso no esta entre 0 y 100 se muestra un error -->
-          <div *ngIf="progress > 100 || progress < 0">
-
-            <div class="alert alert-danger" role="alert">
-             ERROR : El valor de la barra de progreso debe de estar comprendido entre 0 y 100
-            </div>
-
-          </div>
+        <app-progess-increment></app-progess-increment>
 
       </div>
 
@@ -66,7 +50,9 @@
     <!--la clase de bootstrap card crea una targeta que contiene diferentes elementos-->
     <div class="card">
       <div class="card-body">
-        Texto 2
+
+        <app-progess-increment></app-progess-increment>
+
       </div>
     </div>
   </div>
