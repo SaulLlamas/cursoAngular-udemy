@@ -1,5 +1,5 @@
 
-<h4>Incrementador</h4>
+<h4>{{title}}</h4>
 
 <div class="input-group">
 
@@ -10,25 +10,26 @@
               <button class="btn btn-primary" type="button" (click)="changeProgressValue(-5)">
                 <i class="mdi mdi-minus"></i> 5
               </button>
-            </span>
+  </span>
 
   <!-- Input editable del valor de la barra de pogreso -->
-  <input  type="number" class="form-control" [(ngModel)]="progress" >
+  <!-- El identificador para referirse a este elemento dentro de NgChildView se especificara poniendo delante # -->
+  <input #inputProgressValue type="number" class="form-control"  [(ngModel)]="progress" (ngModelChange)="onChange($event)"/>
 
   <!--botton + para subir un 5% el nivel de la barra de proceso-->
   <span class="input-group-btn">
               <button class="btn btn-primary" type="button" (click)="changeProgressValue(+5)">
                 <i class="mdi mdi-plus"></i> 5
               </button>
-            </span>
+  </span>
 
 </div>
 
-<!-- si el valor introducido para la barra de progreso no esta entre 0 y 100 se muestra un error -->
+<!-- si el valor introducido para la barra de progreso no esta entre 0 y 100 se muestra un error
 <div *ngIf="progress > 100 || progress < 0">
 
   <div class="alert alert-danger" role="alert" style="margin-top:1%">
     ERROR : El valor de la barra de progreso debe de estar comprendido entre 0 y 100
   </div>
 
-</div>
+</div>-->

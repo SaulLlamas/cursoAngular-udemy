@@ -13,11 +13,16 @@ import { Component, OnInit } from '@angular/core';
 export class ProgressComponent implements OnInit {
 
   /**
-   * Variable que establecera el valor del porcentage de la barra de progreso
-   * Por defecto el valor es 50
+   * Variable que establecera el valor del porcentage de la barra de progreso 1
    * @type {number}
    */
-  progress : number = 50;
+  progress1 : number = 20;
+
+  /**
+   * Variable que establecera el valor del porcentage de la barra de progreso 2
+   * @type {number}
+   */
+  progress2 : number = 30;
 
   constructor() { }
 
@@ -27,7 +32,9 @@ export class ProgressComponent implements OnInit {
   }
 
 
-
+  changevalue(progressvalue:number){
+    console.log('Output => ' + progressvalue)
+  }
 
 
 }
