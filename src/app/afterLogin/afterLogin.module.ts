@@ -3,27 +3,37 @@
  * @since 14-01-2018
  *
  */
-
-/*import { BrowserModule } from '@angular/platform-browser';*/
-//Importo NgModule para declarar un modulo
+//=========================================================================================
+//IMPORTACIÓN DE MODULOS DE ANGULAR
+//=========================================================================================
+//Importación de NgModule para declarar un modulo
 import { NgModule } from '@angular/core';
+//Importación del modulo para trabajar con los formularios
+import {FormsModule} from '@angular/forms';
+//Importación del modulo @angular/common
+import {CommonModule} from '@angular/common';
+//Importación del modulo de graficas
+import { ChartsModule } from 'ng2-charts';
 
 
 import {AfterLoginComponent} from "./after-login.component";
-
 import {DashboardComponent} from "./sections/dashboard/dashboard.component";
 import {GraphicsComponent} from "./sections/graphics/graphics.component";
 import {ProgressComponent} from "./sections/progress/progress.component";
 
+//=========================================================================================
+//IMPORTACIÓN DE COMPONENTES
+//=========================================================================================
+//Incrementador de la barra de progresso
 import {ProgessIncrementComponent} from '../components/progess-increment/progess-increment.component';
+//Componente de graficas
+import {DoughnutGraphicsComponent} from '../components/doughnut-graphics/doughnut-graphics.component';
 
+//=========================================================================================
+//IMPORTACIÓN DE MODULOS
+//=========================================================================================
 import {SharedModule} from './shared/shared.module';
 import {AFTERLOGIN_ROUTES} from './afterLogin.routes';
-import {FormsModule} from '@angular/forms';
-import {CommonModule} from '@angular/common';
-
-
-
 
 
 @NgModule({
@@ -32,8 +42,9 @@ import {CommonModule} from '@angular/common';
    DashboardComponent,
    GraphicsComponent,
    ProgressComponent,
-   ProgessIncrementComponent
- ],
+   ProgessIncrementComponent,
+   DoughnutGraphicsComponent
+  ],
   exports:[
     DashboardComponent,
     GraphicsComponent,
@@ -43,7 +54,8 @@ import {CommonModule} from '@angular/common';
     SharedModule,
     AFTERLOGIN_ROUTES,
     FormsModule,
-    CommonModule
+    CommonModule,
+    ChartsModule
   ]
 })
 

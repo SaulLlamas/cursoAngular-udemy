@@ -62,11 +62,7 @@ export class ProgessIncrementComponent implements OnInit {
    */
   onChange(newvalue : number){
 
-    /**
-     * Obtencion del elemento html donde se insertara el nuevo valor de la barra de progreso
-     * @type {HTMLElement}
-     */
-    let inputProgressValue: any = document.getElementsByName('inputpv')[0];
+
 
     //En caso de que newvalue sea mayor que 100  el valor del progreso se quedara en 100
     if(newvalue > 100){
@@ -83,7 +79,7 @@ export class ProgessIncrementComponent implements OnInit {
     }
 
     //Igualacion del input y progress
-    this.inputProgressValue.nativeElement.value = this.progress
+    this.inputProgressValue.nativeElement.value = this.progress;
 
     //Emito el valor final de Progress utilizando la propiedad emit()
     this.finalprogress.emit(this.progress);

@@ -1,3 +1,20 @@
-<p>
-  graphics works!
-</p>
+
+<div class="row">
+
+  <div class="col-md-6" *ngFor="let graphic of graphics">
+    <!--la clase de bootstrap card crea una targeta que contiene diferentes elementos-->
+    <div class="card">
+      <div class="card-body">
+
+        <app-doughnut-graphics
+          [title]="graphic.title"
+          [labels]="graphic.labels"
+          [data]="graphic.data"
+          [type]="graphic.type"
+        ></app-doughnut-graphics>
+
+      </div>
+    </div>
+  </div>
+</div>
+
