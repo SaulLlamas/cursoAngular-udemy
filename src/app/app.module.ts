@@ -39,6 +39,7 @@ import {AfterLoginModule} from './afterLogin/afterLogin.module';
 import {FormsModule} from '@angular/forms';
 //Importacion del modulo que permitira utilizar elementos  de angular como  por ejemplo el ngIf
 import {CommonModule} from '@angular/common';
+import { AccountSettingsService } from './services/account-settings.service';
 
 
 
@@ -56,7 +57,8 @@ import {CommonModule} from '@angular/common';
     FormsModule,
     CommonModule
   ],
-  providers: [],
+  providers:[AccountSettingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

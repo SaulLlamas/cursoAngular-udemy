@@ -20,6 +20,7 @@ import {AfterLoginComponent} from "./after-login.component";
 import {DashboardComponent} from "./sections/dashboard/dashboard.component";
 import {GraphicsComponent} from "./sections/graphics/graphics.component";
 import {ProgressComponent} from "./sections/progress/progress.component";
+import { AccountSettingsComponent } from './sections/account-settings/account-settings.component';
 
 //=========================================================================================
 //IMPORTACIÓN DE COMPONENTES
@@ -36,6 +37,7 @@ import {SharedModule} from './shared/shared.module';
 import {AFTERLOGIN_ROUTES} from './afterLogin.routes';
 
 
+
 @NgModule({
  declarations:[
    AfterLoginComponent,
@@ -43,7 +45,8 @@ import {AFTERLOGIN_ROUTES} from './afterLogin.routes';
    GraphicsComponent,
    ProgressComponent,
    ProgessIncrementComponent,
-   DoughnutGraphicsComponent
+   DoughnutGraphicsComponent,
+   AccountSettingsComponent
   ],
   exports:[
     DashboardComponent,

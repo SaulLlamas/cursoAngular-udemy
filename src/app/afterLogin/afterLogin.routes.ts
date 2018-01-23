@@ -9,11 +9,13 @@ import {NgModule} from '@angular/core';
 //Importo Router y RouterModule de @angular/router para trabajar con rutas
 import  {RouterModule , Routes} from '@angular/router';
 
+//Componentes de las rutas
 import {AfterLoginComponent} from './after-login.component';
 
 import {DashboardComponent} from './sections/dashboard/dashboard.component';
 import {GraphicsComponent} from './sections/graphics/graphics.component';
 import {ProgressComponent} from './sections/progress/progress.component';
+import {AccountSettingsComponent} from './sections/account-settings/account-settings.component';
 
 
 const AfterloginRoutes : Routes = [
@@ -24,6 +26,7 @@ const AfterloginRoutes : Routes = [
       {path:"dashboard", component:DashboardComponent},
       {path:"graphics",component:GraphicsComponent},
       {path:"progress",component:ProgressComponent},
+      {path:"account-settings",component:AccountSettingsComponent},
       {path:"" ,redirectTo:'/dashboard', pathMatch:'full' }
     ]
   }
