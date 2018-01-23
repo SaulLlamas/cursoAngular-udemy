@@ -1,0 +1,36 @@
+<!--plantilla del componente por el cula el usuario cambiara el tema de la aplicación-->
+<div class="row">
+  <div class="col-6">
+    <!--la clase de bootstrap card crea una targeta que contiene diferentes elementos-->
+    <div class="card">
+      <div class="card-body">
+
+        <h4 class="card-title" >Temas</h4>
+
+        <hr>
+
+        <div class="r-panel-body">
+          <ul id="themecolors" class="m-t-20">
+            <li><b>Con el sidebar claro</b></li>
+            <!-- Para cambiar el tema se llama a la funcion changeTheme defifida el el controlador de esta componente -->
+            <li><a #themeLink1 (click)="changeTheme('default' ,themeLink1) " data-theme="default" class="selector default-theme" [ngClass]="{'working': isWorking('default')}">1</a></li>
+            <li><a #themeLink2 (click)="changeTheme('green' ,themeLink2) " data-theme="green" class="selector green-theme" [ngClass]="{'working': isWorking('green')}">2</a></li>
+            <li><a #themeLink3 (click)="changeTheme('red' ,themeLink3) " data-theme="red" class="selector red-theme" [ngClass]="{'working': isWorking('red')}">3</a></li>
+            <li><a #themeLink4 (click)="changeTheme('blue' ,themeLink4) " data-theme="blue" class="selector blue-theme" [ngClass]="{'working': isWorking('blue')}">4</a></li>
+            <li><a #themeLink5 (click)="changeTheme('purple' ,themeLink5) " data-theme="purple" class="selector purple-theme" [ngClass]="{'working': isWorking('purple')}">5</a></li>
+            <li><a #themeLink6 (click)="changeTheme('megna' ,themeLink6) " data-theme="megna" class="selector megna-theme" [ngClass]="{'working': isWorking('megna')}">6</a></li>
+
+            <li class="d-block m-t-30"><b>Con el sidebar oscuro</b></li>
+            <li><a #themeLink7  (click)="changeTheme('default-dark',themeLink7) " data-theme="default-dark" class="selector default-dark-theme" [ngClass]="{'working': isWorking('default-dark')}">7</a></li>
+            <li><a #themeLink8  (click)="changeTheme('green-dark',themeLink8) " data-theme="green-dark" class="selector green-dark-theme" [ngClass]="{'working': isWorking('green-dark')}">8</a></li>
+            <li><a #themeLink9  (click)="changeTheme('red-dark',themeLink9) " data-theme="red-dark" class="selector red-dark-theme" [ngClass]="{'working': isWorking('red-dark')}">9</a></li>
+            <li><a #themeLink10 (click)="changeTheme('blue-dark',themeLink10) " data-theme="blue-dark" class="selector blue-dark-theme " [ngClass]="{'working': isWorking('blue-dark')}">10</a></li>
+            <li><a #themeLink11 (click)="changeTheme('purple-dark',themeLink11) " data-theme="purple-dark" class="selector purple-dark-theme" [ngClass]="{'working': isWorking('purple-dark')}">11</a></li>
+            <li><a #themeLink12 (click)="changeTheme('megna-dark',themeLink12) " data-theme="megna-dark" class="selector megna-dark-theme" [ngClass]="{'working': isWorking('megna-dark')}">12</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
