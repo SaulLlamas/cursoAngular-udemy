@@ -14,12 +14,13 @@
             <li><a href="javascript:void()">My Balance</a></li>
             <li><a href="javascript:void()">Inbox</a></li>
             <li><a href="javascript:void()">Account Setting</a></li>
-            <li><a href="javascript:void()">Logout</a></li>
+            <li><a routerLink="/login">Logout</a></li>
           </ul>
         </li>
         <li class="nav-devider"></li>
         <li class="nav-small-cap">PERSONAL</li>
 
+        <!--Se muestran las opciones del menu obtenidas del servicio-->
         <li *ngFor="let menu  of _sideBar.menus">
           <a class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i [class]="menu.icon"></i><span class="hide-menu">{{menu.title}} <span class="label label-rouded label-themecolor pull-right">{{menu.submenu.length}}</span></span></a>
           <ul aria-expanded="false" class="collapse">

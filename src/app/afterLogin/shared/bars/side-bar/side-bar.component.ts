@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+//Importación del servicio SideBar para obtener las opciones del menu lateral
 import {SideBarService} from '../../../../services/shared/sidebar.service';
 
 @Component({
@@ -7,6 +8,7 @@ import {SideBarService} from '../../../../services/shared/sidebar.service';
 })
 export class SideBarComponent implements OnInit {
 
+  //Se incluye el servicio SideBar en el constructor
   constructor(public  _sideBar : SideBarService) { }
 
   ngOnInit() {

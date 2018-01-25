@@ -15,11 +15,11 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 //Componente para el login del usuario
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './login/login/login.component';
 
 
 //Componente para el registro del usuario
-import { RegistrerComponent } from './login/registrer.component';
+import { RegistrerComponent } from './login/Registrer/registrer.component';
 
 
 // ====================================================================
