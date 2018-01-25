@@ -2,7 +2,7 @@
 import {Component, OnInit} from '@angular/core';
 
 //Importacion del servicio de los ajustes de la cuenta de usuario
-import {AccountSettingsService} from '../../../services/account-settings.service';
+import {AccountSettingsService} from '../../../services/accountSettings/account-settings.service';
 
 
 @Component({

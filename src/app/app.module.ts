@@ -1,16 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 
-//Importo NgModule para declarar un modulo
+//Importación de NgModule para declarar un modulo
 import { NgModule } from '@angular/core';
 
-//Importo appComponent que es el componente principal de la aplicación
+
+
+
+//====================================================================
+//IMPORTACIÓN DE COMPONENTES
+//====================================================================
+
+
+//Importación de appComponent que es el componente principal de la aplicación
 import { AppComponent } from './app.component';
 
-/*
-====================================================================
-IMPORTACIÓN DE COMPONENTES
-====================================================================
-*/
 //Componente para el login del usuario
 import { LoginComponent } from './login/login.component';
 
@@ -19,14 +22,10 @@ import { LoginComponent } from './login/login.component';
 import { RegistrerComponent } from './login/registrer.component';
 
 
-//Importo componente para incrementar barras de progresso
-import { ProgessIncrementComponent } from './components/progess-increment/progess-increment.component';
+// ====================================================================
+// IMPORTACIÓN DE MODULOS
+//=====================================================================
 
-/*
- ====================================================================
- IMPORTACIÓN DE MODULOS
- ====================================================================
- */
 
 //Importacion del modulo de rutas
 import {APP_ROUTES} from './app.routes';
@@ -34,12 +33,10 @@ import {APP_ROUTES} from './app.routes';
 //Importacion AfterLoginModule
 import {AfterLoginModule} from './afterLogin/afterLogin.module';
 
-
 //Importacion del modulo para trabajar con formularios
 import {FormsModule} from '@angular/forms';
 //Importacion del modulo que permitira utilizar elementos  de angular como  por ejemplo el ngIf
 import {CommonModule} from '@angular/common';
-import { AccountSettingsService } from './services/account-settings.service';
 
 
 
@@ -57,7 +54,6 @@ import { AccountSettingsService } from './services/account-settings.service';
     FormsModule,
     CommonModule
   ],
-  providers:[AccountSettingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

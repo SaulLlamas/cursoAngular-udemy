@@ -22,7 +22,7 @@ export class AccountSettingsService {
    * saveSettings() => Guarda los ajustes del tema de color de la aplicación en el localStorage
    */
   saveSettings(){
-    console.log('guardado en local Sotorage');
+  //  console.log('guardado en local Sotorage');
     localStorage.setItem('themeSettings',JSON.stringify(this.settings));
   }
 
@@ -33,10 +33,10 @@ export class AccountSettingsService {
 
     //Si hay un tema guardado en el local Storage se aplica ese carga si no se dejara el tema por defecto
     if(localStorage.getItem('themeSettings')){
-      console.log(' cargado del local Sotorage');
+      //console.log(' cargado del local Sotorage');
       this.settings = JSON.parse(localStorage.getItem('themeSettings'))
     }else{
-      console.log('usando valores por defecto de tema');
+     // console.log('usando valores por defecto de tema');
     }
 
     //Se aplica el tema cargado en settigs

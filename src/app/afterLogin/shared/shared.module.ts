@@ -13,6 +13,9 @@ import {SideBarComponent} from './bars/side-bar/side-bar.component';
 import {BreadcrumsComponent} from './breadcrums/breadcrums.component';
 import {NotFound404Component} from '../../errors/not-found404/not-found404.component';
 
+import {RouterModule} from '@angular/router';
+import {CommonModule} from '@angular/common';
+
 
 
 @NgModule({
@@ -27,6 +30,10 @@ import {NotFound404Component} from '../../errors/not-found404/not-found404.compo
     SideBarComponent,
     BreadcrumsComponent,
     NotFound404Component
+  ],
+  imports:[
+    RouterModule,
+    CommonModule
   ]
 })
 

@@ -36,6 +36,10 @@ import {DoughnutGraphicsComponent} from '../components/doughnut-graphics/doughnu
 import {SharedModule} from './shared/shared.module';
 import {AFTERLOGIN_ROUTES} from './afterLogin.routes';
 
+// ====================================================================
+// IMPORTACIÓN DE SERVICIOS
+//=====================================================================
+import {AfterLoginServiceModule} from '../services/afterLoginService.module';
 
 
 @NgModule({
@@ -58,7 +62,8 @@ import {AFTERLOGIN_ROUTES} from './afterLogin.routes';
     AFTERLOGIN_ROUTES,
     FormsModule,
     CommonModule,
-    ChartsModule
+    ChartsModule,
+    AfterLoginServiceModule
   ]
 })
 

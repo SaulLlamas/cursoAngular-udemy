@@ -1,11 +1,10 @@
 /**
+ * Archivo de rutas cuando el usuario se ha logeado
  * @author Saúl Llamas Parra
  * @since 15-01-2018
  */
 
 
-//Importo NgModule para poder declarar el modulo
-import {NgModule} from '@angular/core';
 //Importo Router y RouterModule de @angular/router para trabajar con rutas
 import  {RouterModule , Routes} from '@angular/router';
 
@@ -33,11 +32,5 @@ const AfterloginRoutes : Routes = [
 ];
 
 
-/*@NgModule({
-  imports:[RouterModule.forChild(AfterloginRoutes)],
-  exports:[RouterModule]
-})
-
-export class AfterLoginRoutesModule{}*/
 
 export const AFTERLOGIN_ROUTES = RouterModule.forChild(AfterloginRoutes);
