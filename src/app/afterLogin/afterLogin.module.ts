@@ -40,6 +40,7 @@ import {AFTERLOGIN_ROUTES} from './afterLogin.routes';
 // IMPORTACIÓN DE SERVICIOS
 //=====================================================================
 import {AfterLoginServiceModule} from '../services/afterLoginService.module';
+import { PromisesComponent } from './promises/promises.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import {AfterLoginServiceModule} from '../services/afterLoginService.module';
    ProgressComponent,
    ProgessIncrementComponent,
    DoughnutGraphicsComponent,
-   AccountSettingsComponent
+   AccountSettingsComponent,
+   PromisesComponent
   ],
   exports:[
     DashboardComponent,

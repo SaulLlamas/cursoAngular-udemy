@@ -15,6 +15,7 @@ import {DashboardComponent} from './sections/dashboard/dashboard.component';
 import {GraphicsComponent} from './sections/graphics/graphics.component';
 import {ProgressComponent} from './sections/progress/progress.component';
 import {AccountSettingsComponent} from './sections/account-settings/account-settings.component';
+import {PromisesComponent} from './promises/promises.component';
 
 
 const AfterloginRoutes : Routes = [
@@ -26,6 +27,7 @@ const AfterloginRoutes : Routes = [
       {path:"graphics",component:GraphicsComponent},
       {path:"progress",component:ProgressComponent},
       {path:"account-settings",component:AccountSettingsComponent},
+      {path:"promises",component:PromisesComponent},
       {path:"" ,redirectTo:'/dashboard', pathMatch:'full' }
     ]
   }
