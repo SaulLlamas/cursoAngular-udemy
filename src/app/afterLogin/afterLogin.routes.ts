@@ -16,6 +16,7 @@ import {GraphicsComponent} from './sections/graphics/graphics.component';
 import {ProgressComponent} from './sections/progress/progress.component';
 import {AccountSettingsComponent} from './sections/account-settings/account-settings.component';
 import {PromisesComponent} from './promises/promises.component';
+import {RxjsComponent} from './rxjs/rxjs.component';
 
 
 const AfterloginRoutes : Routes = [
@@ -28,6 +29,7 @@ const AfterloginRoutes : Routes = [
       {path:"progress",component:ProgressComponent},
       {path:"account-settings",component:AccountSettingsComponent},
       {path:"promises",component:PromisesComponent},
+      {path:"rxjs",component:RxjsComponent},
       {path:"" ,redirectTo:'/dashboard', pathMatch:'full' }
     ]
   }

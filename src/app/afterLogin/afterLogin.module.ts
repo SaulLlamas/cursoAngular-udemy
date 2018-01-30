@@ -41,6 +41,8 @@ import {AFTERLOGIN_ROUTES} from './afterLogin.routes';
 //=====================================================================
 import {AfterLoginServiceModule} from '../services/afterLoginService.module';
 import { PromisesComponent } from './promises/promises.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
+
 
 
 @NgModule({
@@ -52,7 +54,8 @@ import { PromisesComponent } from './promises/promises.component';
    ProgessIncrementComponent,
    DoughnutGraphicsComponent,
    AccountSettingsComponent,
-   PromisesComponent
+   PromisesComponent,
+   RxjsComponent
   ],
   exports:[
     DashboardComponent,
