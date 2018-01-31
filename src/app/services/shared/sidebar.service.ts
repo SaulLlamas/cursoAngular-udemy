@@ -12,7 +12,7 @@ export class SideBarService {
         {title:'Graficos',url:'/graphics'},
         {title:'Incrementador Progress',url:'/progress'},
         {title:'Promesas',url:'/promises'},
-        {title:'Rxjs',url:'/rxjs'}
+        {title:'Obserbadores',url:'/rxjs'}
       ]
     }
   ];

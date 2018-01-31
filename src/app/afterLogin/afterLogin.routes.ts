@@ -24,13 +24,13 @@ const AfterloginRoutes : Routes = [
     path:"",
     component:AfterLoginComponent,
     children:[
-      {path:"dashboard", component:DashboardComponent},
-      {path:"graphics",component:GraphicsComponent},
-      {path:"progress",component:ProgressComponent},
-      {path:"account-settings",component:AccountSettingsComponent},
-      {path:"promises",component:PromisesComponent},
-      {path:"rxjs",component:RxjsComponent},
-      {path:"" ,redirectTo:'/dashboard', pathMatch:'full' }
+      {path:"dashboard", component:DashboardComponent,data:{title:"Dashboard"}},
+      {path:"graphics",component:GraphicsComponent,data:{title:"Graficos"}},
+      {path:"progress",component:ProgressComponent,data:{title:"Incrementador progress"}},
+      {path:"account-settings",component:AccountSettingsComponent,data:{title:"Ajustes de cuenta"}},
+      {path:"promises",component:PromisesComponent,data:{title:"Promesas"}},
+      {path:"rxjs",component:RxjsComponent,data:{title:"Observadores"}},
+      {path:"" ,redirectTo:'/dashboard', pathMatch:'full'}
     ]
   }
 ];
