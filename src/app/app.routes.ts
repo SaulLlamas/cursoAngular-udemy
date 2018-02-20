@@ -14,8 +14,7 @@ Importación de los componentes a los que van a referirise las rutas
 ===========================================================================================
  */
 import {LoginComponent} from "./login/login/login.component";
-
-import {RegistrerComponent} from "./login/Registrer/registrer.component";
+import {RegisterComponent} from "./login/register/register.component";
 import {NotFound404Component} from './errors/not-found404/not-found404.component';
 
 
@@ -24,12 +23,12 @@ import {NotFound404Component} from './errors/not-found404/not-found404.component
 
 const  AppRoutes : Routes = [
   {path:"login",component:LoginComponent},
-  {path:"registrer",component:RegistrerComponent},
+  {path:"register",component:RegisterComponent},
   {path:"**",component:NotFound404Component}
 ];
 
 
 
-export const APP_ROUTES = RouterModule.forRoot( AppRoutes );
+export const APP_ROUTES = RouterModule.forRoot( AppRoutes,{useHash:true} );
 
 

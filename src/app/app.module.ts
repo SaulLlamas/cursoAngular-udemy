@@ -19,7 +19,7 @@ import { LoginComponent } from './login/login/login.component';
 
 
 //Componente para el registro del usuario
-import { RegistrerComponent } from './login/Registrer/registrer.component';
+import { RegisterComponent } from './login/register/register.component';
 
 
 // ====================================================================
@@ -44,7 +44,7 @@ import {CommonModule} from '@angular/common';
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrerComponent
+    RegisterComponent
   ],
   //Importacion de modulos necesarios para que la aplicacion funcione
   imports: [

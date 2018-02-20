@@ -7,7 +7,7 @@ declare function init_plugins();
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['../loginregisterpage.css']
 })
 export class LoginComponent implements OnInit {
 
