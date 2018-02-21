@@ -34,9 +34,16 @@ import {APP_ROUTES} from './app.routes';
 import {AfterLoginModule} from './afterLogin/afterLogin.module';
 
 //Importacion del modulo para trabajar con formularios
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 //Importacion del modulo que permitira utilizar elementos  de angular como  por ejemplo el ngIf
 import {CommonModule} from '@angular/common';
+//Importacion del modulo que permitira realizar llamadas http
+import {HttpClientModule} from '@angular/common/http';
+
+//============================================================
+//Importacion de servicios
+//============================================================
+import {UserService} from './services/user/user.service'
 
 
 
@@ -52,7 +59,12 @@ import {CommonModule} from '@angular/common';
     APP_ROUTES,
     AfterLoginModule,
     FormsModule,
-    CommonModule
+    ReactiveFormsModule,
+    CommonModule,
+    HttpClientModule
+  ],
+  providers:[
+    UserService
   ],
   bootstrap: [AppComponent]
 })
