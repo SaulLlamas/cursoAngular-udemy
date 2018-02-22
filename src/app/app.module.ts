@@ -62,6 +62,7 @@ import {UserService} from './services/user/user.service'
     ReactiveFormsModule,
     CommonModule,
     HttpClientModule
+
   ],
   providers:[
     UserService
