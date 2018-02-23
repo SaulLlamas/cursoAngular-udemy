@@ -9,6 +9,8 @@ import {UserService} from '../../services/user/user.service';
 import {User} from '../../models/user.model';
 //Declaración  de la funcion init_plugins situada en costom.js
 declare function init_plugins();
+//Declaracion de una constante de la api de google
+declare const gapi:any;
 
 @Component({
   selector: 'app-login',
@@ -16,6 +18,9 @@ declare function init_plugins();
   styleUrls: ['../loginregisterpage.css']
 })
 export class LoginComponent implements OnInit {
+
+  //Objeto que se va a recibir con información del usuario de google
+  auth2 : any;
 
   email:string;
   remenber_email: boolean = false;
@@ -27,7 +32,7 @@ export class LoginComponent implements OnInit {
    * Funcion que se ejecuta al cargar el componente
    */
   ngOnInit() {
-    //llamo a la funcion init_plugins para los plugins necesarios
+    //llamo a la función init_plugins para los plugins necesarios
     init_plugins();
 
     //Se mira en el local Storage si hay un email para recordar
@@ -38,7 +43,48 @@ export class LoginComponent implements OnInit {
       this.remenber_email = true;
     }
 
+    //Llamada a googleAuthInit() para realizar la autentificación de los usuarios de google
+    this.googleAuthInit();
+
+
   }
+
+
+//============================================================
+//Autentificacion con google
+//============================================================
+
+  googleAuthInit(){
+    gapi.load('auth2',()=>{
+      this.auth2 = gapi.auth2.init({
+        client_id: '853227325606-pjj3l46ktkc3ogj08kfi9gnceq371gvg.apps.googleusercontent.com',
+        cookiepolicy:'single_host_origin',
+        scope: 'profile'
+      });
+
+      this.attachSingIn(document.getElementById('btnGoogle'))
+
+    });
+
+  }
+
+
+  attachSingIn(element){
+    this.auth2.attachClickHandler(element,{},(googleUser)=>{
+      let token = googleUser.getAuthResponse().id_token;
+
+      this._userService.loginGoogleUser(token)
+        .subscribe(()=>{
+          this.router.navigate(['/dashboard'])
+        });
+
+    })
+  }
+
+
+//============================================================
+//Autentificacion normal
+//============================================================
 
   login(form:NgForm){
 
@@ -50,9 +96,10 @@ export class LoginComponent implements OnInit {
     console.log(form.value);
 
     //Si llega aqui el formulario es valido
-    //Crea un objeto User con el email y password del formulario
+    //Creación de  un objeto User con el email y password del formulario
     let user = new  User(null , form.value.email , form.value.password);
 
+    //Utilizacion del servicio User para hacer el login al usuario
     this._userService.loginUser(user,form.value.remenber_email)
       .subscribe(response => {
         this.router.navigate(['/dashboard']);

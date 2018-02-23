@@ -18,11 +18,15 @@ import {AccountSettingsComponent} from './sections/account-settings/account-sett
 import {PromisesComponent} from './promises/promises.component';
 import {RxjsComponent} from './rxjs/rxjs.component';
 
+//Importacion del guard para el login
+import {LoginGuard} from '../services/guards/login.guard';
+
 
 const AfterloginRoutes : Routes = [
   {
     path:"",
     component:AfterLoginComponent,
+    canActivate:[LoginGuard],
     children:[
       {path:"dashboard", component:DashboardComponent,data:{title:"Dashboard"}},
       {path:"graphics",component:GraphicsComponent,data:{title:"Graficos"}},

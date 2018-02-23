@@ -43,8 +43,8 @@ import {HttpClientModule} from '@angular/common/http';
 //============================================================
 //Importacion de servicios
 //============================================================
-import {UserService} from './services/user/user.service'
-
+import {UserService} from './services/user/user.service';
+import {LoginGuard} from './services/guards/login.guard';
 
 
 @NgModule({
@@ -62,10 +62,10 @@ import {UserService} from './services/user/user.service'
     ReactiveFormsModule,
     CommonModule,
     HttpClientModule
-
   ],
   providers:[
-    UserService
+    UserService,
+    LoginGuard
   ],
   bootstrap: [AppComponent]
 })
