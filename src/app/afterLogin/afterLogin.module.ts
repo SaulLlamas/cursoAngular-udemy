@@ -20,7 +20,7 @@ import {AfterLoginComponent} from "./after-login.component";
 import {DashboardComponent} from "./sections/dashboard/dashboard.component";
 import {GraphicsComponent} from "./sections/graphics/graphics.component";
 import {ProgressComponent} from "./sections/progress/progress.component";
-import { AccountSettingsComponent } from './sections/account-settings/account-settings.component';
+import {ThemeSettingsComponent} from './sections/theme-settings/theme-settings.component';
 
 //=========================================================================================
 //IMPORTACIÓN DE COMPONENTES
@@ -30,18 +30,29 @@ import {ProgessIncrementComponent} from '../components/progess-increment/progess
 //Componente de graficas
 import {DoughnutGraphicsComponent} from '../components/doughnut-graphics/doughnut-graphics.component';
 
+import { PromisesComponent } from './promises/promises.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
+
+import { UserProfileComponent } from './sections/user-profile/user-profile.component';
+
 //=========================================================================================
 //IMPORTACIÓN DE MODULOS
 //=========================================================================================
 import {SharedModule} from './shared/shared.module';
 import {AFTERLOGIN_ROUTES} from './afterLogin.routes';
+//Modulo para las rutas
+import {PipesModule} from '../pipes/pipes.module';
 
 // ====================================================================
 // IMPORTACIÓN DE SERVICIOS
 //=====================================================================
 import {AfterLoginServiceModule} from '../services/afterLoginService.module';
-import { PromisesComponent } from './promises/promises.component';
-import { RxjsComponent } from './rxjs/rxjs.component';
+
+
+
+
+
+
 
 
 
@@ -53,9 +64,10 @@ import { RxjsComponent } from './rxjs/rxjs.component';
    ProgressComponent,
    ProgessIncrementComponent,
    DoughnutGraphicsComponent,
-   AccountSettingsComponent,
+   ThemeSettingsComponent,
    PromisesComponent,
-   RxjsComponent
+   RxjsComponent,
+   UserProfileComponent
   ],
   exports:[
     DashboardComponent,
@@ -68,7 +80,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
     FormsModule,
     CommonModule,
     ChartsModule,
-    AfterLoginServiceModule
+    AfterLoginServiceModule,
+    PipesModule
   ]
 })
 

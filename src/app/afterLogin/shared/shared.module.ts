@@ -15,6 +15,7 @@ import {NotFound404Component} from '../../errors/not-found404/not-found404.compo
 
 import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
+import {PipesModule} from '../../pipes/pipes.module';
 
 
 
@@ -33,7 +34,8 @@ import {CommonModule} from '@angular/common';
   ],
   imports:[
     RouterModule,
-    CommonModule
+    CommonModule,
+    PipesModule
   ]
 })
 

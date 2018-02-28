@@ -1,12 +1,13 @@
 /**
- * Servicio que guarda la configuracón de la cuenta del usuario
+ * @summary ThemeSettigs Service
+ * @description guarda la configuración para del tema
  * @author Saul Llamas Parra
  * @since 22-01-2018
  */
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class AccountSettingsService {
+export class ThemeSettingsService {
 
   settings:ThemeSettings = {
     themeUrl:'/assets/css/colors/default.css',

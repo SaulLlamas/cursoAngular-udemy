@@ -2,17 +2,16 @@
 import {Component, OnInit} from '@angular/core';
 
 //Importacion del servicio de los ajustes de la cuenta de usuario
-import {AccountSettingsService} from '../../../services/accountSettings/account-settings.service';
+import {ThemeSettingsService} from '../../../services/themeSettings/theme-settings.service';
 
 
 @Component({
-  selector: 'app-account-settings',
-  templateUrl: './account-settings.component.html',
-  styles: []
+  selector: 'app-theme-settings',
+  templateUrl: './theme-settings.component.html'
 })
-export class AccountSettingsComponent implements OnInit {
+export class ThemeSettingsComponent implements OnInit {
 
-  constructor(  public _settingsService : AccountSettingsService) {
+  constructor(  public _themeSettingsService : ThemeSettingsService) {
 
   }
 
@@ -29,7 +28,7 @@ export class AccountSettingsComponent implements OnInit {
     this.applyCheck(themeLink);
 
     //Aplico el nuevo tema de colores utilizando el servicio de configuracion de cuentas de usuario
-    this._settingsService.aplytheme(theme);
+    this._themeSettingsService.aplytheme(theme);
 
   }
 
@@ -57,7 +56,7 @@ export class AccountSettingsComponent implements OnInit {
 
   isWorking(theme: string){
 
-    if(theme == this._settingsService.settings.theme ){
+    if(theme == this._themeSettingsService.settings.theme ){
       return true
     }
     else{

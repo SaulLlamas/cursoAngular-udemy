@@ -5,7 +5,7 @@
 import { Component, OnInit } from '@angular/core';
 
 //Importacion del servicio de los ajustes de la cuenta de usuario
-import {AccountSettingsService} from '../services/accountSettings/account-settings.service';
+import {ThemeSettingsService} from '../services/themeSettings/theme-settings.service';
 
 //Declaración  de la funcion init_plugins situada en costom.js
 declare function init_plugins();
@@ -21,7 +21,7 @@ export class AfterLoginComponent implements OnInit {
    * En constructor del usuario carga el servicio de los ajustes de la cuenta de usuario
    * @param accountSetings
    */
-  constructor( public accountSetings : AccountSettingsService) { }
+  constructor( public accountSetings : ThemeSettingsService) { }
 
   /**
    * Funcion que se ejecuta al cargar el componente

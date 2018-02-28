@@ -7,9 +7,11 @@
 import { Injectable } from '@angular/core';
 //Importacion de httpClient para realizar llamadas http al servidor
 import {HttpClient} from '@angular/common/http';
+//Importación de httpHeaders para enviar cabeceras
+import { HttpHeaders } from '@angular/common/http';
 //Importacion del modelo user
 import {User} from '../../models/user.model';
-//Importacion del archivo de configuración para obtener la URL de la API
+//Importacion del valor  la URL de la API en el archivo de configuración
 import {URL_API} from '../../config/config';
 
 import 'rxjs/add/operator/map';
@@ -23,8 +25,14 @@ export class UserService {
   token:string;
   user:User;
 
-  constructor(public http:HttpClient , public router: Router) {
+
+
+
+  constructor(public http:HttpClient , public router: Router ) {
     this.loadStorage();
+
+
+
   }
 
 
@@ -126,25 +134,55 @@ export class UserService {
     //Borrado de las variables de sesión token y user guardadas en el localStorage
     localStorage.removeItem('user');
     localStorage.removeItem('token');
-    //Redireción al login 
+    localStorage.removeItem('id');
+    //Redireción al login
     this.router.navigate(['/login'])
   }
 
   /**
-   * Hace una llamada POST para crear un usuario
-   * @param user
+   * @summary createUser()
+   * @description Hace una llamada POST para crear un usuario
+   * @param user => usuario nuevo
    * @return {OperatorFunction<T, R>}
    */
-  createUser(user:User){
+  createUser(new_user:User){
 
     let url = URL_API+"/user";
 
-    return this.http.post(url,user)
+    return this.http.post(url,new_user)
       .map((response:any)=>{
-          swal('usuario creado',user.user_mail,'success');
+          swal('usuario creado',new_user.user_mail,'success');
           return response.user_saved;
       });
 
   }
+
+  /**
+   * @summary updateUser()
+   * @description Hace una llamada PUT para actualizar un usuario
+   * @param user => usuario para actualizar
+   * @return {OperatorFunction<T, R>}
+   */
+  updateUser(update_user:User){
+
+    const httpOptions = {
+      headers: new  HttpHeaders({
+        'Authorization': this.token
+      })
+    };
+
+    let url = URL_API+"/user/"+update_user._id;
+
+    return this.http.put(url,update_user,httpOptions)
+      .map((response:any)=>{
+        //Para actualizar los datos en el objeto User del servicio y en el local storage se utiliza la funcion saveInStorage
+        this.saveInStorage(this.user._id,this.token,update_user);
+        //Muestro un mensaje al usuario
+        swal('usuario actualizado',update_user.user_name,'success');
+
+        return true
+      });
+  }
+
 
 }

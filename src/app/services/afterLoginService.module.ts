@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 //Importacion del servicio de configuracion de cuentas de usuario
-import {AccountSettingsService} from './accountSettings/account-settings.service';
+import {ThemeSettingsService} from './themeSettings/theme-settings.service';
 
 //Importación de el servicio shared
 import {SharedService} from './shared/shared.service';
@@ -14,6 +14,6 @@ import { SideBarService } from './shared/sidebar.service';
   ],
   declarations: [
   ],
-  providers:[AccountSettingsService, SideBarService]
+  providers:[ThemeSettingsService, SideBarService]
 })
 export class AfterLoginServiceModule { }

@@ -51,7 +51,7 @@ import {LoginGuard} from './services/guards/login.guard';
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   //Importacion de modulos necesarios para que la aplicacion funcione
   imports: [
