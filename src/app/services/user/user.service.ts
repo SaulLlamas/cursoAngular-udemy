@@ -18,6 +18,8 @@ import 'rxjs/add/operator/map';
 
 //Importación de Router para la redireción de rutas
 import {Router} from '@angular/router';
+//Importación del servicio para subida de archivos
+import {UploadFileService} from '../upload-file/upload-file.service';
 
 @Injectable()
 export class UserService {
@@ -28,7 +30,7 @@ export class UserService {
 
 
 
-  constructor(public http:HttpClient , public router: Router ) {
+  constructor(public http:HttpClient , public router: Router  , public  _uploadFile : UploadFileService) {
     this.loadStorage();
 
 
@@ -184,5 +186,19 @@ export class UserService {
       });
   }
 
+  changeImage(file:File , id:string){
+
+
+    this._uploadFile.uploadFile(file,'users',id,this.token)
+      .then((response:any) =>{
+        this.user.user_img = response.user_updated.user_img;
+        this.saveInStorage(id, this.token, this.user);
+        swal('Imagen del usuario actualizada', this.user.user_name, 'success');
+      })
+      .catch((response:any)=>{
+        console.log(response);
+      })
+
+  }
 
 }

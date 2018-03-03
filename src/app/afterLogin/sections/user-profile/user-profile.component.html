@@ -2,15 +2,36 @@
 
   <div class="col-lg-6">
     <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">Foto del usuario del usuario</h4>
-
-        <img src="" >
-
-        <input class="input-group" type="file"/>
+      <div class="card-body" align="center">
+        <h4 class="card-title" >Foto del usuario del usuario</h4>
 
 
-        <button type="submit" class="btn btn-success waves-effect waves-light m-r-10 margin-top-20">
+
+        <div >
+
+          <!-- ==================================================-->
+          <!--Vista previa de laimagen del usuario-->
+          <!-- ==================================================-->
+
+          <!--Si no hay imagen selecionada se muestra la imagen actual del usuario-->
+          <img *ngIf="!selected_image" [src]="current_user.user_img | image"  class="view-profile-img" />
+
+          <!--Si se ha selecionado una imagen se muestrara la imagen selecionada-->
+          <img *ngIf="selected_image" [src]="selected_image"  class="view-profile-img" />
+
+
+          <!-- ==================================================-->
+          <!--Imput para subir imagen del usuario-->
+          <!-- ==================================================-->
+          <!-- Al cambiar el archivo de este equipo se ejecutara la funcion updateImage() que recibirá como parametro el archivo -->
+          <input (change)="selectImage($event.target.files[0])" class="file-input" type="file"/>
+
+        </div>
+
+
+
+
+        <button (click)="updateImage()" [disabled]="!new_image" type="submit" class="btn btn-success waves-effect waves-light m-r-10 margin-top-20">
           <i class="fa fa-save"></i>
           Actualizar foto
         </button>
@@ -30,7 +51,7 @@
             <div class="input-group">
               <div class="input-group-addon"><i class="ti-user"></i></div>
               <!-- imput  para el nombre del usuario-->
-              <input [ngModel]="update_user.user_name" name="name" type="text" class="form-control" id="Inputuname" placeholder="Nombre" required>
+              <input [ngModel]="current_user.user_name" name="name" type="text" class="form-control" id="Inputuname" placeholder="Nombre" required>
             </div>
           </div>
           <div class="form-group">
@@ -38,7 +59,7 @@
             <div class="input-group">
               <div class="input-group-addon"><i class="ti-email"></i></div>
               <!--imput para el correo electronico que tendra desactivada la edición si el usuario es de google-->
-              <input [ngModel]="update_user.user_mail" [disabled]="update_user.user_google_auth" name="mail" type="email" class="form-control" id="InputEmail" placeholder="Correo electronico" required>
+              <input [ngModel]="current_user.user_mail" [disabled]="current_user.user_google_auth" name="mail" type="email" class="form-control" id="InputEmail" placeholder="Correo electronico" required>
             </div>
           </div>
 

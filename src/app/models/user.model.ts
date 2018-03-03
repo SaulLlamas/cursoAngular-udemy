@@ -12,7 +12,8 @@ export class User{
     public  user_password : string,
     public  user_img? : string,
     public  user_role? : string,
-    public user_google_auth?: boolean
+    public user_google_auth?: boolean,
+    public _id? :string
 
   ){
 

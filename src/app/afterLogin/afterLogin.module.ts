@@ -44,16 +44,9 @@ import {AFTERLOGIN_ROUTES} from './afterLogin.routes';
 import {PipesModule} from '../pipes/pipes.module';
 
 // ====================================================================
-// IMPORTACIÓN DE SERVICIOS
+// IMPORTACIÓN DEl MODULO DE SERVICIOS
 //=====================================================================
 import {AfterLoginServiceModule} from '../services/afterLoginService.module';
-
-
-
-
-
-
-
 
 
 @NgModule({

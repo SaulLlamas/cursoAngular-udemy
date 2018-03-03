@@ -10,5 +10,18 @@
 }
 
 .margin-top-20{
-  margin-top:20px;
+  margin:20px
+}
+
+
+.view-profile-img{
+  width:50%;
+  display:block;
+  margin:0 auto;
+}
+
+.file-input{
+  margin-top:10px;
+  margin-left:30%;
+  color:transparent;
 }
