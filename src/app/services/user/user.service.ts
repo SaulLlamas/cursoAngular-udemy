@@ -177,8 +177,13 @@ export class UserService {
 
     return this.http.put(url,update_user,httpOptions)
       .map((response:any)=>{
-        //Para actualizar los datos en el objeto User del servicio y en el local storage se utiliza la funcion saveInStorage
-        this.saveInStorage(this.user._id,this.token,update_user);
+
+        //Si el usuario que se va a actualizar es el mismo que el actual tambien se debe actualizar el local storage
+        if (update_user._id === this.user._id) {
+          //Para actualizar los datos en el objeto User del servicio y en el local storage se utiliza la funcion saveInStorage
+          this.saveInStorage(this.user._id,this.token,update_user);
+        }
+
         //Muestro un mensaje al usuario
         swal('usuario actualizado',update_user.user_name,'success');
 

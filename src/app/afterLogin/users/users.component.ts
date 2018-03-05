@@ -129,8 +129,14 @@ export class UsersComponent implements OnInit {
         }
       });
 
+  }
 
+  saveChanges(user:User){
 
+    this._userService.updateUser(user).subscribe((response:any)=>{
+      this.loadUsers();
+    });
+    
 
   }
 
