@@ -17,10 +17,12 @@ import {ProgressComponent} from './sections/progress/progress.component';
 import {ThemeSettingsComponent} from './sections/theme-settings/theme-settings.component';
 import {PromisesComponent} from './promises/promises.component';
 import {RxjsComponent} from './rxjs/rxjs.component';
+import {UserProfileComponent} from './sections/user-profile/user-profile.component';
+import {UsersComponent} from './users/users.component';
 
 //Importacion del guard para el login
 import {LoginGuard} from '../services/guards/login.guard';
-import {UserProfileComponent} from './sections/user-profile/user-profile.component';
+
 
 
 const AfterloginRoutes : Routes = [
@@ -36,6 +38,7 @@ const AfterloginRoutes : Routes = [
       {path:"promises",component:PromisesComponent,data:{title:"Promesas"}},
       {path:"rxjs",component:RxjsComponent,data:{title:"Observadores"}},
       {path:"profile",component:UserProfileComponent,data:{title:"Perfil de usuario"}},
+      {path:"users",component:UsersComponent,data:{title:"Mantenimiento de usuarios"}},
       {path:"" ,redirectTo:'/dashboard', pathMatch:'full'}
     ]
   }

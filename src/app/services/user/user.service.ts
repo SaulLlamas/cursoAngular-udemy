@@ -201,4 +201,53 @@ export class UserService {
 
   }
 
+  /**
+   * @summary loadUsers()
+   * @description Carga los usuarios paginados
+   * @param paginate_from => Posición del primer usuario que se va a mostrar el el array de usuarios
+   * @return {Observable<Object>}
+   */
+  loadUsers(paginate_from : number = 0){
+    let url = URL_API+"/user/?start="+paginate_from;
+    return this.http.get(url);
+  }
+
+  /**
+   * @summary searchUsers()
+   * @description Busca usuarios basandose en un criterio de busqueda
+   * @param criteria => criterio de busqueda
+   * @return {Observable<R>}
+   */
+  searchUsers(criteria:string){
+
+    let  url = URL_API+"/search/collection/users/"+criteria;
+
+    return this.http.get(url)
+      .map((response:any)=>response.users );
+
+  }
+
+
+  deleteUser(id : string){
+
+    let  url = URL_API+"/user/"+id;
+
+    const httpOptions = {
+      headers: new  HttpHeaders({
+        'Authorization': this.token
+      })
+    };
+
+     return this.http.delete(url,httpOptions);
+
+
+  }
+
+
+
+
+
+
+
+
 }

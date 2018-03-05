@@ -47,6 +47,7 @@ import {PipesModule} from '../pipes/pipes.module';
 // IMPORTACIÓN DEl MODULO DE SERVICIOS
 //=====================================================================
 import {AfterLoginServiceModule} from '../services/afterLoginService.module';
+import { UsersComponent } from './users/users.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import {AfterLoginServiceModule} from '../services/afterLoginService.module';
    ThemeSettingsComponent,
    PromisesComponent,
    RxjsComponent,
-   UserProfileComponent
+   UserProfileComponent,
+   UsersComponent
   ],
   exports:[
     DashboardComponent,
