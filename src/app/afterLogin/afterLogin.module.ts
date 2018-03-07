@@ -32,7 +32,7 @@ import {DoughnutGraphicsComponent} from '../components/doughnut-graphics/doughnu
 
 import { PromisesComponent } from './promises/promises.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
-
+import {ModalUploadComponent} from '../components/modal-upload/modal-upload.component';
 import { UserProfileComponent } from './sections/user-profile/user-profile.component';
 
 //=========================================================================================
@@ -50,6 +50,7 @@ import {AfterLoginServiceModule} from '../services/afterLoginService.module';
 import { UsersComponent } from './users/users.component';
 
 
+
 @NgModule({
  declarations:[
    AfterLoginComponent,
@@ -62,7 +63,8 @@ import { UsersComponent } from './users/users.component';
    PromisesComponent,
    RxjsComponent,
    UserProfileComponent,
-   UsersComponent
+   UsersComponent,
+   ModalUploadComponent
   ],
   exports:[
     DashboardComponent,

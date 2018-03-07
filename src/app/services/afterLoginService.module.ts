@@ -9,6 +9,8 @@ import {SharedService} from './shared/shared.service';
 import { SideBarService } from './shared/sidebar.service';
 //Importacion de subida de archivos
 import {UploadFileService} from './upload-file/upload-file.service';
+//Importación del servicio para subida de archivos mediante modal
+import {ModalUploadService} from '../components/modal-upload/modal-upload.service';
 
 @NgModule({
   imports: [
@@ -19,7 +21,8 @@ import {UploadFileService} from './upload-file/upload-file.service';
   providers:[
     ThemeSettingsService,
     SideBarService ,
-    UploadFileService
+    UploadFileService,
+    ModalUploadService
   ]
 })
 export class AfterLoginServiceModule { }

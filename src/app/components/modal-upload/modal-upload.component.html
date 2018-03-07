@@ -1,0 +1,40 @@
+<div class="background-black" [ngClass]="_modalUploadService.hide">
+  <div class="modal"  style="display:block" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Selecionar nueva imagen</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <!-- ==================================================-->
+          <!--Vista previa de la imagen del usuario-->
+          <!-- ==================================================-->
+
+          <!--Si no hay imagen selecionada se muestra la imagen actual del usuario-->
+          <img *ngIf="!selected_image" [src]="'xxxx'| image"  class="view-profile-img" />
+
+          <!--Si se ha selecionado una imagen se muestrara la imagen selecionada-->
+          <img *ngIf="selected_image" [src]="selected_image"  class="view-profile-img" />
+
+
+          <!-- ==================================================-->
+          <!--Imput para subir imagen del usuario-->
+          <!-- ==================================================-->
+          <!-- Al cambiar el archivo de este equipo se ejecutara la funcion updateImage() que recibirá como parametro el archivo -->
+          <input (change)="selectImage($event.target.files[0])" class="file-input" type="file"/>
+
+        </div>
+
+        <div class="modal-footer">
+          <button [disabled]="!selected_image" type="button" class="btn btn-primary" (click)="uploadFile()" >Guardar Cambios</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Cancelar</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

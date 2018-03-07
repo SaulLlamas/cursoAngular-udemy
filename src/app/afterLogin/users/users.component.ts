@@ -2,9 +2,14 @@ import { Component, OnInit } from '@angular/core';
 
 //Importación del modelo usuario
 import {User} from '../../models/user.model';
+
 //Servicio de usuario
 import {UserService} from '../../services/user/user.service';
-import {current} from 'codelyzer/util/syntaxKind';
+
+//Importacion del servicio de subida de archivos para ventanas modales
+import {ModalUploadService} from '../../components/modal-upload/modal-upload.service';
+
+declare var swal:any;
 
 @Component({
   selector: 'app-users',
@@ -28,12 +33,19 @@ export class UsersComponent implements OnInit {
    */
   loading:boolean = true;
 
-  constructor(public _userService:UserService) {
+  constructor(public _userService:UserService,public _modalUploadService:ModalUploadService) {
     this.current_user = _userService.user;
   }
 
   ngOnInit() {
     this.loadUsers();
+
+    //Subscribción al evento de _modalUploadService para cada vez que se suba una imagen mediante el modal recargue los datos
+    this._modalUploadService.notification
+      .subscribe((resp)=>{
+        this.loadUsers();
+      });
+
   }
 
   /**
@@ -79,6 +91,11 @@ export class UsersComponent implements OnInit {
 
   }
 
+  /**
+   * @summary searchUser()
+   * @description Busca usuarios en base a un criterio recibido como parametro
+   * @param criteria
+   */
   searchUser(criteria:string){
 
 
@@ -96,6 +113,11 @@ export class UsersComponent implements OnInit {
       });
   }
 
+  /**
+   * @summary deleteUser()
+   * @description Borra el usuario que recibe por parametro
+   * @param user
+   */
   deleteUser(user:User){
     //Hay que tener en cuenta que no se puede borrar el usuario que se esta utilizando
     if(user._id === this.current_user._id){
@@ -131,13 +153,26 @@ export class UsersComponent implements OnInit {
 
   }
 
+  /**
+   * @summary saveChanges()
+   * @description Guarda los cambios del rol en el usuario
+   * @param user
+   */
   saveChanges(user:User){
 
     this._userService.updateUser(user).subscribe((response:any)=>{
       this.loadUsers();
     });
-    
 
+  }
+
+  /**
+   * @summary openModal()
+   * @description abre una ventana modal
+   * @param user
+   */
+  openModal(user:User){
+    this._modalUploadService.showModal('users',user._id,this._userService.token);
   }
 
 }
