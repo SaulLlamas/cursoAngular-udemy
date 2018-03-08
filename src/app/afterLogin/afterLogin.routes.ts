@@ -15,8 +15,8 @@ import {DashboardComponent} from './sections/dashboard/dashboard.component';
 import {GraphicsComponent} from './sections/graphics/graphics.component';
 import {ProgressComponent} from './sections/progress/progress.component';
 import {ThemeSettingsComponent} from './sections/theme-settings/theme-settings.component';
-import {PromisesComponent} from './promises/promises.component';
-import {RxjsComponent} from './rxjs/rxjs.component';
+import {PromisesComponent} from './sections/promises/promises.component';
+import {RxjsComponent} from './sections/rxjs/rxjs.component';
 import {UserProfileComponent} from './sections/user-profile/user-profile.component';
 import {UsersComponent} from './users/users.component';
 

@@ -30,8 +30,8 @@ import {ProgessIncrementComponent} from '../components/progess-increment/progess
 //Componente de graficas
 import {DoughnutGraphicsComponent} from '../components/doughnut-graphics/doughnut-graphics.component';
 
-import { PromisesComponent } from './promises/promises.component';
-import { RxjsComponent } from './rxjs/rxjs.component';
+import { PromisesComponent } from './sections/promises/promises.component';
+import { RxjsComponent } from './sections/rxjs/rxjs.component';
 import {ModalUploadComponent} from '../components/modal-upload/modal-upload.component';
 import { UserProfileComponent } from './sections/user-profile/user-profile.component';
 
