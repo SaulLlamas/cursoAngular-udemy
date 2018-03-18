@@ -35,9 +35,9 @@ export class RegisterComponent implements OnInit {
 
     this.form = new FormGroup({
       /*
-       * La función FormControl permite validar campos del formulario
-       * - El primer parametro que recibe es el valor por defecto del campo del formulario
-       * - El segundo parametro que recibe son las validaciones para ese campo utilizando Validators
+       * Objeto FormControl
+       * - El primer parametro que recibe es el valor por defecto del campo
+       * - El segundo parametro que recibe son las validaciones del campo utilizando Validators
        */
       name: new  FormControl(null, Validators.required),
       email: new  FormControl(null, [Validators.required,Validators.email]),

@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../../../models/user.model';
 //Importacion del servicio del User
 import {UserService} from '../../../services/user/user.service';
-import {ngWalkerFactoryUtils} from 'codelyzer/angular/ngWalkerFactoryUtils';
+
 
 @Component({
   selector: 'app-user-profile',
@@ -99,7 +99,7 @@ export class UserProfileComponent implements OnInit {
      */
     let url_image_selected = reader.readAsDataURL(file_upload);
 
-    
+
     reader.onloadend = ()=>{
       //El valor de reader.result es la imagen selecionada en base64
       this.selected_image = reader.result;

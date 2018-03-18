@@ -1,0 +1,64 @@
+<div class="row animated fadeIn" >
+
+
+  <div class="col-md-7">
+    <div class="card card-body">
+      <h3 class="box-title m-b-0">{{title}} {{doctor.dctr_name}}</h3>
+      <div class="row">
+        <div class="col-sm-12 col-xs-12">
+          <form ngNativedValidate #f="ngForm" class="margin-top-10" (ngSubmit)="saveDoctor(f)">
+            <div class="form-group">
+              <label>Nombre del medico</label>
+              <input [(ngModel)]="doctor.dctr_name" class=" form-control " type="text" name="name" placeholder="Nombre" required>
+            </div>
+            <div class="form-group">
+              <label>Hospital</label>
+              <select (change)="changeHospital($event.target.value)" [(ngModel)]="doctor.dctr_hospital" name="hospital" class="form-control" required >
+                <option value="">Selecciona Hospital</option>
+                <option *ngFor="let hostital of hospitals" [value]="hostital._id">
+                    {{hostital.hosp_name}}
+                </option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-success waves-effect waves-light m-r-10"><i class="fa fa-save"></i> Guardar</button>
+            <a routerLink="/doctors" class="btn btn-inverse waves-effect waves-light">Cancelar</a>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="col-md-5">
+
+    <div class="col-md-12" *ngIf="doctor._id">
+      <div class="card card-body">
+
+        <h4 class="box-title m-b-0">Foto del médido</h4>
+
+        <img (click)="changeDoctorImage()"  [src]="doctor.dctr_img | image:'doctor'" class=" pointer view-dctr-hosp-img ">
+
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="card card-body">
+
+        <h4 class="box-title m-b-0">Foto del Hospital</h4>
+
+        <img [src]="hospital.hosp_img | image:'hospital'" class=" view-dctr-hosp-img" >
+
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+
+
+</div>

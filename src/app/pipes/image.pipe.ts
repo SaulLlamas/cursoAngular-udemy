@@ -20,15 +20,15 @@ export class ImagePipe implements PipeTransform {
     switch(element){
       //Si el elemento del que se quiere obtener la imagen es un usuario
       case 'user':
-        url_api += '/users/'+img
+        url_api += '/users/'+img;
         break;
       //Si el elemento del que se quiere obtener la imagen es un doctor
       case 'doctor':
-        url_api += '/doctors/'+img
+        url_api += '/doctors/'+img;
         break;
       ////Si el elemento del que se quiere obtener la imagen es un hospital
       case 'hospital':
-        url_api += '/hospitals/'+img
+        url_api += '/hospitals/'+img;
         break;
       default:
         console.log("El elemento "+element+" no es valido");

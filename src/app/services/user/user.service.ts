@@ -11,7 +11,7 @@ import {HttpClient} from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 //Importacion del modelo user
 import {User} from '../../models/user.model';
-//Importacion del valor  la URL de la API en el archivo de configuración
+//Importacion del valor de la URL de la API del archivo de configuración
 import {URL_API} from '../../config/config';
 
 import 'rxjs/add/operator/map';

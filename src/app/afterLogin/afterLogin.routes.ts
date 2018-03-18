@@ -18,7 +18,12 @@ import {ThemeSettingsComponent} from './sections/theme-settings/theme-settings.c
 import {PromisesComponent} from './sections/promises/promises.component';
 import {RxjsComponent} from './sections/rxjs/rxjs.component';
 import {UserProfileComponent} from './sections/user-profile/user-profile.component';
-import {UsersComponent} from './users/users.component';
+import {UsersComponent} from './maintenance/users/users.component';
+import {HospitalsComponent} from './maintenance/hospitals/hospitals.component';
+import {HospitalComponent} from './maintenance/hospitals/hospital.component'
+import {DoctorsComponent} from './maintenance/doctors/doctors.component';
+import {DoctorComponent} from './maintenance/doctors/doctor.component';
+
 
 //Importacion del guard para el login
 import {LoginGuard} from '../services/guards/login.guard';
@@ -39,6 +44,10 @@ const AfterloginRoutes : Routes = [
       {path:"rxjs",component:RxjsComponent,data:{title:"Observadores"}},
       {path:"profile",component:UserProfileComponent,data:{title:"Perfil de usuario"}},
       {path:"users",component:UsersComponent,data:{title:"Mantenimiento de usuarios"}},
+      {path:"hospitals",component:HospitalsComponent,data:{title:"Mantenimiento de Hospitales"}},
+      {path:"hospital/:id",component:HospitalComponent,data:{title:"Hospital"}},
+      {path:"doctors",component:DoctorsComponent,data:{title:"Mantenimiento de Médicos"}},
+      {path:"doctor/:id",component:DoctorComponent,data:{title:"Médico"}},
       {path:"" ,redirectTo:'/dashboard', pathMatch:'full'}
     ]
   }

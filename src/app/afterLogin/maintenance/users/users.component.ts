@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 //Importación del modelo usuario
-import {User} from '../../models/user.model';
+import {User} from '../../../models/user.model';
 
 //Servicio de usuario
-import {UserService} from '../../services/user/user.service';
+import {UserService} from '../../../services/user/user.service';
 
 //Importacion del servicio de subida de archivos para ventanas modales
-import {ModalUploadService} from '../../components/modal-upload/modal-upload.service';
+import {ModalUploadService} from '../../../components/modal-upload/modal-upload.service';
 
 declare var swal:any;
 
@@ -168,7 +168,7 @@ export class UsersComponent implements OnInit {
 
   /**
    * @summary openModal()
-   * @description abre una ventana modal
+   * @description abre la ventana modal para la subida de archivos
    * @param user
    */
   openModal(user:User){

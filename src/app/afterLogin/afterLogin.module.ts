@@ -9,7 +9,7 @@
 //Importación de NgModule para declarar un modulo
 import { NgModule } from '@angular/core';
 //Importación del modulo para trabajar con los formularios
-import {FormsModule} from '@angular/forms';
+import {FormsModule ,ReactiveFormsModule} from '@angular/forms';
 //Importación del modulo @angular/common
 import {CommonModule} from '@angular/common';
 //Importación del modulo de graficas
@@ -34,6 +34,11 @@ import { PromisesComponent } from './sections/promises/promises.component';
 import { RxjsComponent } from './sections/rxjs/rxjs.component';
 import {ModalUploadComponent} from '../components/modal-upload/modal-upload.component';
 import { UserProfileComponent } from './sections/user-profile/user-profile.component';
+import { UsersComponent } from './maintenance/users/users.component';
+import { HospitalsComponent } from './maintenance/hospitals/hospitals.component';
+import { DoctorsComponent } from './maintenance/doctors/doctors.component';
+import { DoctorComponent } from './maintenance/doctors/doctor.component';
+import { HospitalComponent } from './maintenance/hospitals/hospital.component';
 
 //=========================================================================================
 //IMPORTACIÓN DE MODULOS
@@ -47,7 +52,8 @@ import {PipesModule} from '../pipes/pipes.module';
 // IMPORTACIÓN DEl MODULO DE SERVICIOS
 //=====================================================================
 import {AfterLoginServiceModule} from '../services/afterLoginService.module';
-import { UsersComponent } from './users/users.component';
+
+
 
 
 
@@ -64,7 +70,11 @@ import { UsersComponent } from './users/users.component';
    RxjsComponent,
    UserProfileComponent,
    UsersComponent,
-   ModalUploadComponent
+   ModalUploadComponent,
+   HospitalsComponent,
+   DoctorsComponent,
+   DoctorComponent,
+   HospitalComponent
   ],
   exports:[
     DashboardComponent,
@@ -75,6 +85,7 @@ import { UsersComponent } from './users/users.component';
     SharedModule,
     AFTERLOGIN_ROUTES,
     FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     ChartsModule,
     AfterLoginServiceModule,

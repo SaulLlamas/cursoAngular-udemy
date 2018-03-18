@@ -40,7 +40,10 @@ export class ModalUploadService {
     this.hide = '';
     this.element = element;
     this.id = id;
-    this.token = token
+    this.token = token;
+
+    console.log('modalUploadService.ShowModal()','element => '+this.element+' id => '+this.id+' token =>'+this.token);
+
   }
 
 }

@@ -1,0 +1,85 @@
+<div class="row" animated fadeIn>
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <!--Input de busqueda de hospitales-->
+        <input #inputSearchDoctors (keyup)="searchDoctors(inputSearchDoctors.value)" type="text" class="form-control" placeholder="Buscar Médico ..."/>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--div que se mostrará mientras esten cargando los datos-->
+<div *ngIf="loading" class="row" animated fadeIn>
+
+  <div class="col-12">
+    <div class="alert alert-warning text-center " >
+      <strong>Cargando datos ...</strong>
+      <br>
+      <i class="fa fa-refresh fa-spin fa-2x "></i>
+      <br>
+    </div>
+  </div>
+
+</div>
+
+<!--div donde se muestra la informacion de los doctores-->
+<div *ngIf="!loading" class="row" animated fadeIn>
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <div class="row">
+          <div class="col-md-9"></div>
+          <button [routerLink]="['/doctor','new']" class="btn btn-info btn-rounded"><i class="fa fa-plus-circle"></i> Añadir Medico</button>
+        </div>
+
+        <h3 class="margin-top-10">Médicos Obtenidos (<small>{{total_results}}</small>)</h3>
+
+        <table class="table table-hover ">
+          <thead>
+          <tr class="row ">
+            <th class="col-md-2">Imagen</th>
+            <th class="col-md-4">Nombre</th>
+            <th class="col-md-4">Hospital</th>
+            <th class="col-md-2"></th>
+          </tr>
+          </thead>
+          <tbody >
+          <tr *ngFor="let doctor of doctors"  class="row">
+            <td class="col-md-2">
+              <img  [src]="doctor.dctr_img | image:'doctor'"  class="list-image img-circle  ">
+            </td>
+            <td class="col-md-4">
+             {{doctor.dctr_name}}
+            </td>
+            <td class="col-md-4">
+              {{doctor.dctr_hospital.hosp_name}}
+            </td>
+
+            <td class="col-md-2">
+              <button [routerLink]="['/doctor',doctor._id]" class="btn btn-primary">
+                <i class="fa fa-edit "></i>
+              </button>
+              <button (click)="deleteDoctor(doctor)"  class="btn btn-danger">
+                <i class="fa fa-trash-o "></i>
+              </button >
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        <button (click)="changeFrom(-5)" class="btn btn-secondary">
+          Anterior
+        </button>
+        <button (click)="changeFrom(5)"  class="btn btn-secondary">
+          Siguiente
+        </button>
+
+
+      </div>
+    </div>
+  </div>
+</div>

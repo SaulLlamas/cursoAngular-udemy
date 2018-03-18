@@ -1,3 +1,11 @@
+body,.form-control,.btn{
+  font-size:14px!important;
+}
+
+i{
+  font-size:16px!important;
+}
+
 #themecolors a{
   cursor:pointer;
 }
@@ -14,11 +22,27 @@
 }
 
 
+.padding-10{
+  padding:10px;
+}
+
+
 .view-profile-img{
   width:50%;
   display:block;
   margin:0 auto;
+  padding:10px;
 }
+
+.view-dctr-hosp-img{
+  width:300px;
+  height:300px;
+  display:block;
+  margin:0 auto;
+  padding:10px;
+}
+
+
 
 .file-input{
   margin-top:10px;
@@ -40,7 +64,13 @@
   background-color:rgba(0,0,0,0.4);
   position:fixed;
   top:0px;
+  left:0px;
   width: 100%;
   height:100%;
   z-index:99999;
 }
+
+.font-12px{
+  font-size:12px;
+}
+
