@@ -39,6 +39,7 @@ import { HospitalsComponent } from './maintenance/hospitals/hospitals.component'
 import { DoctorsComponent } from './maintenance/doctors/doctors.component';
 import { DoctorComponent } from './maintenance/doctors/doctor.component';
 import { HospitalComponent } from './maintenance/hospitals/hospital.component';
+import {GlobalSearchComponent} from './maintenance/global-search/global-search.component';
 
 //=========================================================================================
 //IMPORTACIÓN DE MODULOS
@@ -52,6 +53,7 @@ import {PipesModule} from '../pipes/pipes.module';
 // IMPORTACIÓN DEl MODULO DE SERVICIOS
 //=====================================================================
 import {AfterLoginServiceModule} from '../services/afterLoginService.module';
+
 
 
 
@@ -74,7 +76,8 @@ import {AfterLoginServiceModule} from '../services/afterLoginService.module';
    HospitalsComponent,
    DoctorsComponent,
    DoctorComponent,
-   HospitalComponent
+   HospitalComponent,
+   GlobalSearchComponent
   ],
   exports:[
     DashboardComponent,

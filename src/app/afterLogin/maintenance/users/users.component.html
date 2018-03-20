@@ -28,47 +28,47 @@
 <!--div donde se muestra la informacion de los usuarios-->
 <div *ngIf="!loading" class="row" animated fadeIn>
   <div class="col-12">
-          <div class="card">
-            <div class="card-body">
+    <div class="card">
+      <div class="card-body">
 
-              <h3>Usuarios obtenidos (<small>{{total_results}}</small>)</h3>
+        <h3>Usuarios obtenidos (<small>{{total_results}}</small>)</h3>
 
-              <table class="table table-hover">
-                <thead>
-                <tr>
-                  <th>Imagen</th>
-                  <th>Correo</th>
-                  <th>Nombre</th>
-                  <th>Role</th>
-                  <th>Auth</th>
-                </tr>
-                </thead>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Imagen</th>
+              <th>Correo</th>
+              <th>Nombre</th>
+              <th>Role</th>
+              <th>Auth</th>
+            </tr>
+          </thead>
           <tbody>
-          <tr *ngFor="let user of users">
-            <td><img (click)="openModal(user)" [src]="user.user_img | image" class="list-image img-circle pointer" ></td>
-            <td>{{user.user_mail}}</td>
-            <td>{{user.user_name}}</td>
-            <td>
+            <tr *ngFor="let user of users">
+              <td><img (click)="openModal(user)" [src]="user.user_img | image" class="list-image img-circle pointer" ></td>
+              <td>{{user.user_mail}}</td>
+              <td>{{user.user_name}}</td>
+              <td>
 
-              <select [(ngModel)]="user.user_role" name="role" class="form-control">
-                <option value="normal">Normal</option>
-                <option value="admin">Administrador</option>
-              </select>
+                <select [(ngModel)]="user.user_role" name="role" class="form-control">
+                  <option value="normal">Normal</option>
+                  <option value="admin">Administrador</option>
+                </select>
 
-            </td>
-            <td>
-              <label  *ngIf="!user.user_google_auth" class="label label-info">normal</label>
-              <label  *ngIf="user.user_google_auth" class="label label-danger">google</label>
-            </td>
-            <td>
-              <button (click)="saveChanges(user)"  class="btn btn-primary">
-                <i class="fa fa-save "></i>
-              </button>
-              <button (click)="deleteUser(user)" class="btn btn-danger">
-                <i class="fa fa-trash-o "></i>
-              </button>
-            </td>
-          </tr>
+              </td>
+              <td>
+                <label  *ngIf="!user.user_google_auth" class="label label-info">normal</label>
+                <label  *ngIf="user.user_google_auth" class="label label-danger">google</label>
+              </td>
+              <td>
+                <button (click)="saveChanges(user)"  class="btn btn-primary">
+                  <i class="fa fa-save "></i>
+                </button>
+                <button (click)="deleteUser(user)" class="btn btn-danger">
+                  <i class="fa fa-trash-o "></i>
+                </button>
+              </td>
+            </tr>
           </tbody>
 
         </table>

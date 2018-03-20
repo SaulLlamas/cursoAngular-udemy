@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../../../services/user/user.service';
 //Importacion del modelo User
 import {User} from '../../../../models/user.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header-bar',
@@ -14,10 +15,15 @@ export class HeaderBarComponent implements OnInit {
 
   current_user: User;
 
-  constructor(public _userService : UserService) { }
+  constructor(public _userService : UserService , public router:Router) { }
 
   ngOnInit() {
     this.current_user = this._userService.user;
   }
+
+  search(criteria:string){
+    this.router.navigate(['/globalsearch',criteria]);
+  }
+
 
 }

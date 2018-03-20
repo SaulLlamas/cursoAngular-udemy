@@ -31,7 +31,7 @@ import {DoctorService} from './doctor/doctor.service';
     ThemeSettingsService,
     SideBarService ,
     UploadFileService,
-    ModalUploadService,
+    ModalUploadService
   ]
 })
 export class AfterLoginServiceModule { }
