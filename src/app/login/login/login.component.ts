@@ -75,7 +75,7 @@ export class LoginComponent implements OnInit {
 
       this._userService.loginGoogleUser(token)
         .subscribe(()=>{
-          this.router.navigate(['/dashboard'])
+          window.location.href = '#/dashboard'
         });
 
     })

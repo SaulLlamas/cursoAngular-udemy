@@ -17,6 +17,8 @@ import {ModalUploadService} from '../components/modal-upload/modal-upload.servic
 import {HospitalService} from './hospital/hospital.service';
 //Importación del servicio doctors
 import {DoctorService} from './doctor/doctor.service';
+//Importación del AdminGuard
+import {AdminGuard} from './guards/admin.guard';
 
 @NgModule({
   imports: [
@@ -31,7 +33,8 @@ import {DoctorService} from './doctor/doctor.service';
     ThemeSettingsService,
     SideBarService ,
     UploadFileService,
-    ModalUploadService
+    ModalUploadService,
+    AdminGuard
   ]
 })
 export class AfterLoginServiceModule { }

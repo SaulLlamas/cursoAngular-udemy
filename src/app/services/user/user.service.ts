@@ -26,9 +26,7 @@ export class UserService {
 
   token:string;
   user:User;
-
-
-
+  menu_options:any[]=[];
 
   constructor(public http:HttpClient , public router: Router  , public  _uploadFile : UploadFileService) {
     this.loadStorage();
@@ -38,11 +36,13 @@ export class UserService {
   }
 
 
-  saveInStorage(id:string,token:string,user:User){
+  saveInStorage(id:string,token:string,user:User,menu_options:any){
     localStorage.setItem('id',id);
     localStorage.setItem('user',JSON.stringify(user));
+    localStorage.setItem('menu_options',JSON.stringify(menu_options));
     localStorage.setItem('token',token);
 
+    this.menu_options = menu_options;
     this.token=token;
     this.user= user;
 
@@ -53,12 +53,14 @@ export class UserService {
    * @description Carga la informacion del localStorage en las variables token y user
    */
   loadStorage(){
-    if(localStorage.getItem('token') && localStorage.getItem('user')){
+    if(localStorage.getItem('token') && localStorage.getItem('user')&&localStorage.getItem('menu_options')){
       this.token = localStorage.getItem('token');
       this.user =JSON.parse(localStorage.getItem('user'));
+      this.menu_options = JSON.parse(localStorage.getItem('menu_options'));
     }else{
       this.token = '';
       this.user = null;
+      this.menu_options = [];
     }
   }
 
@@ -82,8 +84,10 @@ export class UserService {
     return this.http.post(url,{token:token})
         .map((response:any)=>{
 
+          console.log(response);
+
           //Si el token de google en correcto se guardan los datos en el LocalStorage
-          this.saveInStorage(response.user._id,response.token,response.user);
+          this.saveInStorage(response.user._id,response.token,response.user,response.menu);
 
           return true;
 
@@ -102,7 +106,6 @@ export class UserService {
    */
   loginUser(user:User , remenber:boolean){
 
-    console.log('remenber',remenber);
 
     //Si el parametro remenber esta habilitado se guardara en el local storage el email del usuario para recordarselo en un futuro
     if(remenber){
@@ -117,8 +120,9 @@ export class UserService {
     return this.http.post(url,user)
       .map((response:any)=>{
 
+
         //Si el login es correcto se guardan los datos en el LocalStorage
-        this.saveInStorage(response.user._id,response.token,response.user);
+        this.saveInStorage(response.user._id,response.token,response.user,response.menu);
 
         return true;
       });
@@ -137,6 +141,7 @@ export class UserService {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
     localStorage.removeItem('id');
+    localStorage.removeItem('menu_options');
     //Redireción al login
     this.router.navigate(['/login'])
   }
@@ -181,7 +186,7 @@ export class UserService {
         //Si el usuario que se va a actualizar es el mismo que el actual tambien se debe actualizar el local storage
         if (update_user._id === this.user._id) {
           //Para actualizar los datos en el objeto User del servicio y en el local storage se utiliza la funcion saveInStorage
-          this.saveInStorage(this.user._id,this.token,update_user);
+          this.saveInStorage(this.user._id,this.token,update_user,this.menu_options);
         }
 
         //Muestro un mensaje al usuario
@@ -197,7 +202,7 @@ export class UserService {
     this._uploadFile.uploadFile(file,'users',id,this.token)
       .then((response:any) =>{
         this.user.user_img = response.user_updated.user_img;
-        this.saveInStorage(id, this.token, this.user);
+        this.saveInStorage(id, this.token, this.user,this.menu_options);
         swal('Imagen del usuario actualizada', this.user.user_name, 'success');
       })
       .catch((response:any)=>{

@@ -27,6 +27,8 @@ import {GlobalSearchComponent} from './maintenance/global-search/global-search.c
 
 //Importacion del guard para el login
 import {LoginGuard} from '../services/guards/login.guard';
+//Importacion del guard para los administradores
+import {AdminGuard} from '../services/guards/admin.guard';
 
 
 
@@ -45,11 +47,16 @@ const AfterloginRoutes : Routes = [
       {path:"profile",component:UserProfileComponent,data:{title:"Perfil de usuario"}},
       {path:"globalsearch/:criteria",component:GlobalSearchComponent,data:{title:"Busqueda Global"}},
 
-      {path:"users",component:UsersComponent,data:{title:"Mantenimiento de usuarios"}},
+
       {path:"hospitals",component:HospitalsComponent,data:{title:"Mantenimiento de Hospitales"}},
-      {path:"hospital/:id",component:HospitalComponent,data:{title:"Hospital"}},
-      {path:"doctors",component:DoctorsComponent,data:{title:"Mantenimiento de Médicos"}},
-      {path:"doctor/:id",component:DoctorComponent,data:{title:"Médico"}},
+      {path:"hospital/:id",component:HospitalComponent , data:{title:"Hospital"}},
+      {path:"doctors",component:DoctorsComponent , data:{title:"Mantenimiento de Médicos"}},
+      {path:"doctor/:id",component:DoctorComponent , data:{title:"Médico"}},
+
+      //============================================================
+      //Rutas para administradores
+      //============================================================
+      {path:"users",component:UsersComponent, canActivate:[AdminGuard] , data:{title:"Mantenimiento de usuarios"}},
 
       {path:"" ,redirectTo:'/dashboard', pathMatch:'full'}
     ]
