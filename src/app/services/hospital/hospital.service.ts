@@ -7,8 +7,11 @@ import {URL_API} from '../../config/config';
 //Importacion de HttpClient y HttpHeaders para realizar peticiones http
 import {HttpClient , HttpHeaders} from '@angular/common/http';
 
-//Importacion de map
+//Importación de los operadores map y catch
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch'
+//Importación del observable
+import {Observable} from 'rxjs/Observable';
 
 //Importacion del modelo Hospital
 import {Hospital} from '../../models/hospital.model';
@@ -57,7 +60,14 @@ export class HospitalService {
      */
     let url = URL_API+"/hospital/?start="+paginateFrom;
 
-    return this.http.get(url);
+    return this.http.get(url)
+      .catch(error =>{
+        if(error.status === 500){
+          swal(error.error.message,error.error.errors,'error');
+        }
+
+        return Observable.throw(error);
+      })
 
 
   }
@@ -76,7 +86,19 @@ export class HospitalService {
     return this.http.get(url)
       .map((response:any)=>{
        return  response.hospital
-      });
+      })
+      .catch(error =>{
+
+        if(error.status === 500){
+          swal(error.error.message,error.error.errors,'error');
+        }
+
+        if(error.status === 404){
+          swal(error.error.message,'No se encontro el hospital','error');
+        }
+
+        return Observable.throw(error);
+      })
 
   }
 
@@ -114,14 +136,44 @@ export class HospitalService {
             return response.hospital_updated
           }
         )
+        //En caso de que halla errores en la petición salta el catch
+        .catch(error=> {
 
-    }else{
+          if (error.status === 404) {
+            swal(error.error.message, 'el hospital no existe ', 'error');
+          }
+
+          if (error.status === 500) {
+            swal(error.error.message, error.error.errors, 'error');
+          }
+
+          if (error.status === 400) {
+            swal(error.error.message, ' los datos enviados no son correctos', 'error');
+          }
+
+        });
+
+        }else{
 
       return this.http.post(url,hospital,httpOptions)
         .map((response:any)=>{
             return response.hospital_saved;
           }
         )
+        .catch(error=>{
+
+          if(error.status === 400){
+            swal(error.error.message,error.error.errors,'error');
+          }
+
+          if(error.status === 500){
+            swal(error.error.message,error.error.errors,'error');
+          }
+
+          return Observable.throw(error);
+
+        });
+
 
     }
 
@@ -139,30 +191,19 @@ export class HospitalService {
     let  url = URL_API+"/search/collection/hospitals/"+criteria;
 
     return this.http.get(url)
-      .map((response:any)=>response.hospitals );
+      .map((response:any)=>response.hospitals )
+      .catch(error =>{
 
-  }
+        if(error.status === 400){
+          swal('ERROR al realizar la busqueda',error.error.message,'error');
+        }
 
-
-  /**
-   * @summary updateHospital()
-   * @description Hace una llamada PUT para actualizar un hospital
-   * @param update_hospital => hospital para actualizar
-   * @return {OperatorFunction<T, R>}
-   */
-  updateHospital(update_hospital:Hospital){
-
-    const httpOptions = {
-      headers: new  HttpHeaders({
-        'Authorization': this.token
+        return Observable.throw(error);
       })
-    };
-
-    let url = URL_API+"/hospital/"+update_hospital._id;
-
-    return this.http.put(url,update_hospital,httpOptions);
 
   }
+
+
 
   deleteHospital(id : string){
 
@@ -174,8 +215,21 @@ export class HospitalService {
       })
     };
 
-    return this.http.delete(url,httpOptions);
+    return this.http.delete(url,httpOptions)
+    //En caso de que halla errores en la petición salta el catch
+    .catch(error=>{
 
+        if(error.status === 404){
+          swal(error.error.message,'el doctor no existe ','error');
+        }
+
+        if(error.status === 500){
+          swal(error.error.message,error.error.errors,'error');
+        }
+
+        return Observable.throw(error);
+
+    });
 
   }
 

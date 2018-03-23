@@ -14,12 +14,17 @@ import {User} from '../../models/user.model';
 //Importacion del valor de la URL de la API del archivo de configuración
 import {URL_API} from '../../config/config';
 
+//Importación de los operadores map y catch
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch'
+//Importación del observable
+import {Observable} from 'rxjs/Observable';
 
 //Importación de Router para la redireción de rutas
 import {Router} from '@angular/router';
 //Importación del servicio para subida de archivos
 import {UploadFileService} from '../upload-file/upload-file.service';
+
 
 @Injectable()
 export class UserService {
@@ -120,12 +125,21 @@ export class UserService {
     return this.http.post(url,user)
       .map((response:any)=>{
 
-
         //Si el login es correcto se guardan los datos en el LocalStorage
         this.saveInStorage(response.user._id,response.token,response.user,response.menu);
 
         return true;
-      });
+      })
+      //En caso de que halla errores en la petición salta el catch
+      .catch(error=>{
+
+          console.log(error.error.message);
+
+          swal('ERROR de acceso',error.error.message,'error');
+
+          return Observable.throw(error);
+
+      })
 
   }
 
@@ -160,6 +174,20 @@ export class UserService {
       .map((response:any)=>{
           swal('usuario creado',new_user.user_mail,'success');
           return response.user_saved;
+      })
+      //En caso de que halla errores en la petición salta el catch
+      .catch(error=>{
+
+        if(error.status === 400){
+          swal(error.error.message,'el correo electronico '+new_user.user_mail+' ya esta registrado','error');
+        }
+
+        if(error.status === 500){
+          swal(error.error.message,error.error.errors,'error');
+        }
+
+        return Observable.throw(error);
+
       });
 
   }
@@ -193,6 +221,25 @@ export class UserService {
         swal('usuario actualizado',update_user.user_name,'success');
 
         return true
+      })
+      //En caso de que halla errores en la petición salta el catch
+      .catch(error=>{
+
+        if(error.status === 404){
+          swal(error.error.message,'el usuario no existe ','error');
+        }
+
+        if(error.status === 500) {
+          swal(error.error.message, error.error.errors, 'error');
+        }
+
+        if(error.status === 400){
+          swal(error.error.message,' No puede haber dos usuarios con un mismo corrreo','error');
+        }
+
+
+        return Observable.throw(error);
+
       });
   }
 
@@ -219,7 +266,14 @@ export class UserService {
    */
   loadUsers(paginate_from : number = 0){
     let url = URL_API+"/user/?start="+paginate_from;
-    return this.http.get(url);
+    return this.http.get(url)
+      .catch(error =>{
+        if(error.status === 500){
+          swal(error.error.message,error.error.errors,'error');
+        }
+
+        return Observable.throw(error);
+      })
   }
 
   /**
@@ -233,8 +287,14 @@ export class UserService {
     let  url = URL_API+"/search/collection/users/"+criteria;
 
     return this.http.get(url)
-      .map((response:any)=>response.users );
+      .map((response:any)=>response.users )
+      .catch(error =>{
+        if(error.status === 500){
+          swal(error.error.message,error.error.errors,'error');
+        }
 
+        return Observable.throw(error);
+      })
   }
 
 
@@ -248,7 +308,21 @@ export class UserService {
       })
     };
 
-     return this.http.delete(url,httpOptions);
+     return this.http.delete(url,httpOptions)
+     //En caso de que halla errores en la petición salta el catch
+       .catch(error=>{
+
+         if(error.status === 404){
+           swal(error.error.message,'el usuario no existe ','error');
+         }
+
+         if(error.status === 500){
+           swal(error.error.message,error.error.errors,'error');
+         }
+
+         return Observable.throw(error);
+
+       });
 
 
   }
