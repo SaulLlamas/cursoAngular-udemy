@@ -151,6 +151,8 @@ export class HospitalService {
             swal(error.error.message, ' los datos enviados no son correctos', 'error');
           }
 
+          return Observable.throw(error);
+
         });
 
         }else{
