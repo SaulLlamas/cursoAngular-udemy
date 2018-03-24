@@ -52,12 +52,7 @@ import {PipesModule} from '../pipes/pipes.module';
 // ====================================================================
 // IMPORTACIÓN DEl MODULO DE SERVICIOS
 //=====================================================================
-import {AfterLoginServiceModule} from '../services/afterLoginService.module';
-
-
-
-
-
+import {ServiceModule} from '../services/service.module';
 
 @NgModule({
  declarations:[
@@ -91,7 +86,7 @@ import {AfterLoginServiceModule} from '../services/afterLoginService.module';
     ReactiveFormsModule,
     CommonModule,
     ChartsModule,
-    AfterLoginServiceModule,
+    ServiceModule,
     PipesModule
   ]
 })

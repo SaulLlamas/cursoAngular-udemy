@@ -40,11 +40,11 @@ import {CommonModule} from '@angular/common';
 //Importacion del modulo que permitira realizar llamadas http
 import {HttpClientModule} from '@angular/common/http';
 
+
 //============================================================
 //Importacion de servicios
 //============================================================
-import {UserService} from './services/user/user.service';
-import {LoginGuard} from './services/guards/login.guard';
+import {ServiceModule} from './services/service.module';
 
 
 @NgModule({
@@ -61,11 +61,10 @@ import {LoginGuard} from './services/guards/login.guard';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceModule
   ],
   providers:[
-    UserService,
-    LoginGuard
   ],
   bootstrap: [AppComponent]
 })
