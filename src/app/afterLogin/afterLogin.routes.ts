@@ -26,11 +26,12 @@ import {GlobalSearchComponent} from './maintenance/global-search/global-search.c
 
 //Importacion del guard para los administradores
 import {AdminGuard} from '../services/service.index';
+import {VerifyTokenGuard} from '../services/guards/verify-token.guard';
 
 
 
 const AfterloginRoutes : Routes = [
-      {path:"dashboard", component:DashboardComponent,data:{title:"Dashboard"}},
+      {path:"dashboard", component:DashboardComponent, canActivate:[VerifyTokenGuard],data:{title:"Dashboard"}},
       {path:"graphics",component:GraphicsComponent,data:{title:"Graficos"}},
       {path:"progress",component:ProgressComponent,data:{title:"Incrementador progress"}},
       {path:"theme-settings",component:ThemeSettingsComponent,data:{title:"Cambiar aparencia"}},

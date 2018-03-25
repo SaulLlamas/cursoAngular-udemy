@@ -9,6 +9,7 @@
 //============================================================
 export {AdminGuard} from './guards/admin.guard';
 export {LoginGuard} from './guards/login.guard';
+export {VerifyTokenGuard} from './guards/verify-token.guard';
 
 //============================================================
 //SERVICES

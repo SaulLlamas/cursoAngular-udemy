@@ -36,7 +36,35 @@ export class UserService {
   constructor(public http:HttpClient , public router: Router  , public  _uploadFile : UploadFileService) {
     this.loadStorage();
 
+  }
 
+  /**
+   * @summary renewtoken()
+   * @description Renueva el token antes de que expire
+   * @return {any}
+   */
+
+  renewtoken(){
+
+    let url = URL_API + '/login/renewtoken';
+
+    const httpOptions = {
+      headers: new  HttpHeaders({
+        'Authorization': this.token
+      })
+    };
+
+    return this.http.get(url,httpOptions)
+      .map((response:any)=>{
+        this.token = response.token;
+        localStorage.setItem('token',response.token);
+        return true;
+      })
+      .catch(error=>{
+        this.router.navigate(['/login']);
+        swal('ERROR','error al renobar el token','error');
+        return Observable.throw(error);
+      })
 
   }
 

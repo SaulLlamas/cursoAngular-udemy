@@ -14,7 +14,8 @@ import{
   UploadFileService,
   ThemeSettingsService,
   SideBarService,
-  SharedService
+  SharedService,
+  VerifyTokenGuard
 }from './service.index';
 
 
@@ -28,6 +29,7 @@ import{
   providers:[
     AdminGuard,
     LoginGuard,
+    VerifyTokenGuard,
     HospitalService,
     DoctorService,
     UserService,
