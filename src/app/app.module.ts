@@ -39,30 +39,33 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 //Importacion del modulo que permitira realizar llamadas http
 import {HttpClientModule} from '@angular/common/http';
-
+import {AfterLoginComponent} from './afterLogin/after-login.component';
 
 //============================================================
 //Importacion de servicios
 //============================================================
 import {ServiceModule} from './services/service.module';
+import {SharedModule} from './afterLogin/shared/shared.module';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AfterLoginComponent
   ],
   //Importacion de modulos necesarios para que la aplicacion funcione
   imports: [
     BrowserModule,
     APP_ROUTES,
-    AfterLoginModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
     HttpClientModule,
-    ServiceModule
+    ServiceModule,
+    SharedModule
   ],
   providers:[
   ],

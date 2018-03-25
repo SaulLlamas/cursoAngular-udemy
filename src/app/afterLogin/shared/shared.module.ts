@@ -16,6 +16,7 @@ import {NotFound404Component} from '../../errors/not-found404/not-found404.compo
 import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {PipesModule} from '../../pipes/pipes.module';
+import {ModalUploadComponent} from '../../components/modal-upload/modal-upload.component';
 
 
 
@@ -24,13 +25,15 @@ import {PipesModule} from '../../pipes/pipes.module';
     HeaderBarComponent,
     SideBarComponent,
     BreadcrumsComponent,
-    NotFound404Component
+    NotFound404Component,
+    ModalUploadComponent
   ],
   exports:[
     HeaderBarComponent,
     SideBarComponent,
     BreadcrumsComponent,
-    NotFound404Component
+    NotFound404Component,
+    ModalUploadComponent
   ],
   imports:[
     RouterModule,
