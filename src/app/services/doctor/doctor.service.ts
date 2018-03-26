@@ -12,6 +12,8 @@ import 'rxjs/add/operator/catch'
 //Importación del observable
 import {Observable} from 'rxjs/Observable';
 
+import swal from 'sweetalert';
+
 
 
 //Importación sel servicio User para la obtención del token

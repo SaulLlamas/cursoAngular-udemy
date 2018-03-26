@@ -55,7 +55,7 @@ export class VerifyTokenGuard implements CanActivate {
       }else{
         this._userservice.renewtoken()
           .subscribe(()=>{
-            console.log('token renovabo')
+            console.log('token renovabo');
             resolve(true);
           },()=>{
             this.router.navigate(['/login']);

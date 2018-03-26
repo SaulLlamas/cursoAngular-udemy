@@ -25,6 +25,8 @@ import {Router} from '@angular/router';
 //Importación del servicio para subida de archivos
 import {UploadFileService} from '../upload-file/upload-file.service';
 
+import swal from 'sweetalert';
+
 
 @Injectable()
 export class UserService {
@@ -56,6 +58,7 @@ export class UserService {
 
     return this.http.get(url,httpOptions)
       .map((response:any)=>{
+        this.router.navigate(['/dashboard']);
         this.token = response.token;
         localStorage.setItem('token',response.token);
         return true;

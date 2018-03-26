@@ -18,6 +18,8 @@ import {Hospital} from '../../models/hospital.model';
 //Importación sel servicio User para la obtención del token
 import {UserService} from '../user/user.service';
 
+import swal from 'sweetalert';
+
 @Injectable()
 export class HospitalService {
 

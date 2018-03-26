@@ -5,6 +5,8 @@ import {ActivationEnd, Router} from '@angular/router';
 //Importacion de  Meta  y  MetaDefinition permiten obtener y modificar las etiquetas meta de la pagina
 import {Meta, Title , MetaDefinition} from '@angular/platform-browser';
 
+import 'rxjs/add/operator/filter';
+
 @Component({
   selector: 'app-breadcrums',
   templateUrl: './breadcrums.component.html',

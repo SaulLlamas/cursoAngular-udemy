@@ -4,6 +4,7 @@ import {Doctor} from '../../../models/doctor.model';
 //Importación del servicio Doctor
 import {DoctorService} from '../../../services/doctor/doctor.service';
 
+
 declare var swal:any;
 
 @Component({
