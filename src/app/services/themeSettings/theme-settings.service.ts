@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 export class ThemeSettingsService {
 
   settings:ThemeSettings = {
-    themeUrl:'/assets/css/colors/default.css',
+    themeUrl:'./assets/css/colors/default.css',
     theme:'default'
   };
 
@@ -55,7 +55,7 @@ export class ThemeSettingsService {
      * Variable urlhref => Guarda la url del nuevo estilo mediante un template string
      * @type {string}
      */
-    let urlhref  = `/assets/css/colors/${theme}.css`;
+    let urlhref  = `./assets/css/colors/${theme}.css`;
 
     //Cargo la url del nuevo estilo cambiando el atributo href del elemento con el id appTheme
     document.getElementById('appTheme').setAttribute('href',urlhref);
