@@ -15,7 +15,7 @@ import{
   ThemeSettingsService,
   SideBarService,
   SharedService,
-  VerifyTokenGuard
+  VerifyTokenGuard,
 }from './service.index';
 
 

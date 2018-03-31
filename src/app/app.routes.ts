@@ -16,8 +16,12 @@ Importación de los componentes a los que van a referirise las rutas
 import {LoginComponent} from "./login/login/login.component";
 import {RegisterComponent} from "./login/register/register.component";
 import {NotFound404Component} from './errors/not-found404/not-found404.component';
-import {AfterLoginComponent} from './afterLogin/after-login.component';
-import {LoginGuard} from './services/service.index';
+//Importación del componente que se cargara cuando el usuario se halla logeado
+import { AfterLoginComponent } from './afterLogin/after-login.component';
+import { LoginGuard } from './services/service.index';
+
+
+
 
 
 const  AppRoutes : Routes = [
@@ -27,8 +31,9 @@ const  AppRoutes : Routes = [
     path:"",
     component:AfterLoginComponent,
     canActivate:[LoginGuard],
-    //loadChildren al contrario que Children permite cargar las rutas de forma dinamica
+    //Las rutas que estan en loadChildren se cargaran dinamicamente
     loadChildren:'./afterLogin/afterLogin.module#AfterLoginModule'
+
   },
   {path:"**",component:NotFound404Component}
 ];

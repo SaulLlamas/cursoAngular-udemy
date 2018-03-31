@@ -1,3 +1,5 @@
+
+
 /**
  * @summary service.index.ts
  * @description Archivo para la carga de servicios
@@ -9,7 +11,8 @@
 //============================================================
 export {AdminGuard} from './guards/admin.guard';
 export {LoginGuard} from './guards/login.guard';
-export {VerifyTokenGuard} from './guards/verify-token.guard';
+export { VerifyTokenGuard } from './guards/verify-token.guard';
+
 
 //============================================================
 //SERVICES
@@ -22,5 +25,3 @@ export {UploadFileService} from './upload-file/upload-file.service';
 export {ThemeSettingsService} from './themeSettings/theme-settings.service';
 export {SideBarService} from './shared/sidebar.service';
 export {SharedService} from './shared/shared.service';
-
-

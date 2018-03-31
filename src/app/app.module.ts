@@ -21,6 +21,9 @@ import { LoginComponent } from './login/login/login.component';
 //Componente para el registro del usuario
 import { RegisterComponent } from './login/register/register.component';
 
+//Componente al que se acede cuando el usuario se ha logeado correctamente
+import { AfterLoginComponent } from './afterLogin/after-login.component';
+
 
 // ====================================================================
 // IMPORTACIÓN DE MODULOS
@@ -39,13 +42,12 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 //Importacion del modulo que permitira realizar llamadas http
 import {HttpClientModule} from '@angular/common/http';
-import {AfterLoginComponent} from './afterLogin/after-login.component';
 
 //============================================================
 //Importacion de servicios
 //============================================================
-import {ServiceModule} from './services/service.module';
-import {SharedModule} from './afterLogin/shared/shared.module';
+import { ServiceModule } from './services/service.module';
+import { SharedModule } from './afterLogin/shared/shared.module';
 
 
 

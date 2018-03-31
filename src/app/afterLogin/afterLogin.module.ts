@@ -16,6 +16,11 @@ import {CommonModule} from '@angular/common';
 import { ChartsModule } from 'ng2-charts';
 
 
+import {DashboardComponent} from "./sections/dashboard/dashboard.component";
+import {GraphicsComponent} from "./sections/graphics/graphics.component";
+import {ProgressComponent} from "./sections/progress/progress.component";
+import {ThemeSettingsComponent} from './sections/theme-settings/theme-settings.component';
+
 //=========================================================================================
 //IMPORTACIÓN DE COMPONENTES
 //=========================================================================================
@@ -24,11 +29,6 @@ import {ProgessIncrementComponent} from '../components/progess-increment/progess
 //Componente de graficas
 import {DoughnutGraphicsComponent} from '../components/doughnut-graphics/doughnut-graphics.component';
 
-
-import {DashboardComponent} from "./sections/dashboard/dashboard.component";
-import {GraphicsComponent} from "./sections/graphics/graphics.component";
-import {ProgressComponent} from "./sections/progress/progress.component";
-import {ThemeSettingsComponent} from './sections/theme-settings/theme-settings.component';
 import { PromisesComponent } from './sections/promises/promises.component';
 import { RxjsComponent } from './sections/rxjs/rxjs.component';
 import {ModalUploadComponent} from '../components/modal-upload/modal-upload.component';
@@ -48,10 +48,6 @@ import {AFTERLOGIN_ROUTES} from './afterLogin.routes';
 //Modulo para las rutas
 import {PipesModule} from '../pipes/pipes.module';
 
-// ====================================================================
-// IMPORTACIÓN DEl MODULO DE SERVICIOS
-//=====================================================================
-import {ServiceModule} from '../services/service.module';
 
 @NgModule({
  declarations:[
@@ -83,7 +79,6 @@ import {ServiceModule} from '../services/service.module';
     ReactiveFormsModule,
     CommonModule,
     ChartsModule,
-    ServiceModule,
     PipesModule
   ]
 })

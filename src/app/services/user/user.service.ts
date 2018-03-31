@@ -25,8 +25,6 @@ import {Router} from '@angular/router';
 //Importación del servicio para subida de archivos
 import {UploadFileService} from '../upload-file/upload-file.service';
 
-import swal from 'sweetalert';
-
 
 @Injectable()
 export class UserService {
@@ -38,9 +36,12 @@ export class UserService {
   constructor(public http:HttpClient , public router: Router  , public  _uploadFile : UploadFileService) {
     this.loadStorage();
 
+
+
   }
 
-  /**
+
+   /**
    * @summary renewtoken()
    * @description Renueva el token antes de que expire
    * @return {any}
@@ -58,14 +59,15 @@ export class UserService {
 
     return this.http.get(url,httpOptions)
       .map((response:any)=>{
-        this.router.navigate(['/dashboard']);
         this.token = response.token;
         localStorage.setItem('token',response.token);
+        console.log(response);
         return true;
       })
       .catch(error=>{
         this.router.navigate(['/login']);
-        swal('ERROR','error al renobar el token','error');
+        swal('error al renobar el token',error,'error');
+        console.log(error)
         return Observable.throw(error);
       })
 

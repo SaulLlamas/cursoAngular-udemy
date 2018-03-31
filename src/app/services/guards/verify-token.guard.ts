@@ -32,9 +32,8 @@ export class VerifyTokenGuard implements CanActivate {
     console.log('payload_token',payoad);
 
 
-    this.mustrenew(payoad.exp)
+    return   this.mustrenew(payoad.exp)
 
-    return true;
   }
 
 
@@ -47,8 +46,8 @@ export class VerifyTokenGuard implements CanActivate {
       //Se obriene la fecha actual
       let now = new Date();
 
-      //Se añade 4 horas a la fecha actual
-      now.setTime(now.getTime()+ (48*60*60*1000));
+      //Se añade 1 hora a la fecha actual
+      now.setTime(now.getTime()+ (1*60*60*1000));
 
       if(tokenexpird.getTime() > now.getTime()){
         resolve(true);
@@ -89,3 +88,4 @@ export class VerifyTokenGuard implements CanActivate {
 
 
 }
+

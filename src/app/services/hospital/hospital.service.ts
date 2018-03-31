@@ -18,8 +18,6 @@ import {Hospital} from '../../models/hospital.model';
 //Importación sel servicio User para la obtención del token
 import {UserService} from '../user/user.service';
 
-import swal from 'sweetalert';
-
 @Injectable()
 export class HospitalService {
 
@@ -152,8 +150,8 @@ export class HospitalService {
           if (error.status === 400) {
             swal(error.error.message, ' los datos enviados no son correctos', 'error');
           }
-
-          return Observable.throw(error);
+		  
+		  return Observable.throw(error);
 
         });
 
